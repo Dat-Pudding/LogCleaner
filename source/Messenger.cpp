@@ -4,8 +4,20 @@
 
 void Messenger::ErrorMsg_TooFewArgs()
 {
+	system("cls");
 	std::cout << "\n"
-			  << "ERROR: Too few arguments given!\n\n"
+			  << "ERROR: Too few arguments given! \n"
+			  << "<======================================== INFO ========================================>\n"
+			  << " | Please use this format: LogCleaner.exe <logfilePath> <outputFileName> <filterMode> |\n"
+			  << "<======================================================================================>\n\n"
+			  << std::endl;
+	system("pause");
+}
+void Messenger::ErrorMsg_IdenticalIO()
+{
+	system("cls");
+	std::cout << "\n"
+			  << "ERROR: Output file can't be identical to the input file! \n"
 			  << "<======================================== INFO ========================================>\n"
 			  << " | Please use this format: LogCleaner.exe <logfilePath> <outputFileName> <filterMode> |\n"
 			  << "<======================================================================================>\n\n"
@@ -49,7 +61,7 @@ void Messenger::ErrorMsg_Generic()
 {
 	system("cls");
 	std::cout << "\n"
-			  << "Something went horribly wrong! \n\n"
+			  << "Something went wrong! \n"
 			  << "<======================================== INFO ========================================>\n"
 			  << " | Please use this format: LogCleaner.exe <logfilePath> <outputFileName> <filterMode> |\n"
 			  << "<======================================================================================>\n\n"

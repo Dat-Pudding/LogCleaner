@@ -160,28 +160,46 @@ void ReadFromFile(std::string logfilePath, std::string outputFileName, std::stri
 
 int main(int argc, char* argv[])
 {
-	if (argc <= 2)
+	std::string inputPath = argv[1];
+	std::string outputPath = argv[2];
+
+	if (inputPath == outputPath)
 	{
-		messenger.ErrorMsg_TooFewArgs();
+		messenger.ErrorMsg_IdenticalIO();
 		return 1;
-	}
-	else if (argc == 3)
-	{
-		system("cls");
-		ReadFromFile(argv[1], argv[2]);
-		messenger.StatusMsg_Finished();
-		return 0;
-	}
-	else if (argc == 4)
-	{
-		system("cls");
-		ReadFromFile(argv[1], argv[2], argv[3]);
-		messenger.StatusMsg_Finished();
-		return 0;
 	}
 	else
 	{
-		messenger.ErrorMsg_Generic();
-		return 1;
+		switch (argc)
+		{
+			case 0:
+				messenger.ErrorMsg_TooFewArgs();
+				return 1;
+
+			case 1:
+				messenger.ErrorMsg_TooFewArgs();
+				return 1;
+
+			case 2:
+				messenger.ErrorMsg_TooFewArgs();
+				return 1;
+
+			case 3:
+				system("cls");
+				ReadFromFile(argv[1], argv[2]);
+				messenger.StatusMsg_Finished();
+				return 0;
+
+			case 4:
+				system("cls");
+				ReadFromFile(argv[1], argv[2], argv[3]);
+				messenger.StatusMsg_Finished();
+				return 0;
+
+			default:
+				messenger.ErrorMsg_Generic();
+				return 1;
+				break;
+		}
 	}
 }

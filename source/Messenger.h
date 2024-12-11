@@ -5,6 +5,7 @@ class Messenger
 {
 public:
 	void ErrorMsg_TooFewArgs();
+	void ErrorMsg_IdenticalIO();
 	void ErrorMsg_BadPath();
 	void ErrorMsg_BadOutput(std::string);
 	void ErrorMsg_BadDefaultOutput();
