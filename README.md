@@ -24,7 +24,7 @@ cd DRIVE:\dir\thatContains\LogCleaner.exe
 
  -3. Enter the following line into your command line, replacing the placeholders to your liking:
      
-```.cmd
+```.sh
 LogCleaner.exe path/of/log-file desired/path/of/extract-file filterMode
 ```
 
