@@ -6,4 +6,8 @@ Purpose-built to extract information about hashrates, accepted/rejected shares a
 When run in default mode it will take the specified logfile and extract all lines that contain the hashrate reports with their timestamps.
 
 ## How to use
-You can run it either manually via command line or append it to your `start.cmd` in the XMRig directory to have it run as soon as XMRig stops and therefore automatically stripping the most recent log file
+You can run it either manually via command line or append it to your `start.cmd` in the XMRig directory to have it run as soon as XMRig stops and therefore automatically stripping the most recent log file.
+
+### Manual usage
+
+### Usage via `start.cmd`
