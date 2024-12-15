@@ -17,13 +17,17 @@ When compiling yourself make sure to use at least `C++17` or newer, since the co
 ### Manual usage
  -1. Open a terminal/command line interface (CLI)
  -2. Within the terminal navigate to the directory of your `LogCleaner` executable
+
      ```bash
      cd DRIVE:\dir\thatContains\LogCleaner.exe
      ```
+
  -3. Enter the following line into your command line, replacing the placeholders to your liking:
+     
      ```bash
      LogCleaner.exe path/of/log-file desired/path/of/extract-file filterMode
      ```
+
  -4. Watch it go through the log-file
 
 ### Usage via `start.cmd`
