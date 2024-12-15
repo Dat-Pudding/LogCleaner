@@ -16,7 +16,7 @@ When compiling yourself make sure to use at least `C++17` or newer, since the co
 
 ### Manual usage
  1. Open a terminal/command line interface (CLI)
- 2. Within the terminal navigate to the directory of your `LogCleaner` executable
+ 2. Within the terminal navigate to the directory of your `LogCleaner` executable:
 
 ```.bat
 cd DRIVE:\dir\thatContains\LogCleaner.exe
@@ -29,5 +29,22 @@ LogCleaner.exe path/of/log-file desired/path/of/extract-file filterMode
 ```
 
  4. Watch it go through the log-file
+ 5. Notice the newly appeared file of the specified name in the specified directory 
 
 ### Usage via `start.cmd`
+
+ 1. Open the `start.cmd` for editing. It normally is in XMRig's directory 
+ 2. Within the terminal navigate to the directory of your `LogCleaner` executable:
+
+```.bat
+cd DRIVE:\dir\thatContains\LogCleaner.exe
+```
+
+ 3. Enter the following line into your command line, replacing the placeholders to your liking:
+     
+```.bat
+LogCleaner.exe path/of/log-file desired/path/of/extract-file filterMode
+```
+
+ 4. Watch it go through the log-file
+ 5. Notice the newly appeared file of the specified name in the specified directory 
