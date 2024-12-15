@@ -18,15 +18,15 @@ When compiling yourself make sure to use at least `C++17` or newer, since the co
  -1. Open a terminal/command line interface (CLI)
  -2. Within the terminal navigate to the directory of your `LogCleaner` executable
 
-     ```.cmd
-     cd DRIVE:\dir\thatContains\LogCleaner.exe
-     ```
+```.cmd
+cd DRIVE:\dir\thatContains\LogCleaner.exe
+```
 
  -3. Enter the following line into your command line, replacing the placeholders to your liking:
      
-     ```.cmd
-     LogCleaner.exe path/of/log-file desired/path/of/extract-file filterMode
-     ```
+```.cmd
+LogCleaner.exe path/of/log-file desired/path/of/extract-file filterMode
+```
 
  -4. Watch it go through the log-file
 
