@@ -15,19 +15,19 @@ You can either build it yourself from the code in `/source/` or wait for me to u
 When compiling yourself make sure to use at least `C++17` or newer, since the code utilises the non-experimental `std::filestream` for reading/writing. The code itself was written in a `C++22` environment.
 
 ### Manual usage
- -1. Open a terminal/command line interface (CLI)
- -2. Within the terminal navigate to the directory of your `LogCleaner` executable
+ 1. Open a terminal/command line interface (CLI)
+ 2. Within the terminal navigate to the directory of your `LogCleaner` executable
 
 ```.cmd
 cd DRIVE:\dir\thatContains\LogCleaner.exe
 ```
 
- -3. Enter the following line into your command line, replacing the placeholders to your liking:
+ 3. Enter the following line into your command line, replacing the placeholders to your liking:
      
 ```.sh
 LogCleaner.exe path/of/log-file desired/path/of/extract-file filterMode
 ```
 
- -4. Watch it go through the log-file
+ 4. Watch it go through the log-file
 
 ### Usage via `start.cmd`
