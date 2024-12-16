@@ -20,6 +20,8 @@ namespace Converters
             const char openBracket = '[';
             const char closeBracket = ']';
             const char comma = ',';
+            const std::string infix = ",speed(10s/60s/15m)";
+            const std::string suffix = ",RPM";
         };
 
         class ToSQL
