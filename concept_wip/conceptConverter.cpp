@@ -7,7 +7,7 @@ namespace Converters
     class ToCSV
     {
     public:
-        void Convert(std::string, int);
+        void Convert(std::string);
     private:
         void BracketToSpace(std::string, int);
         void EqualiseSpaces(std::string, int);
@@ -20,15 +20,15 @@ namespace Converters
 int main()
 {
     std::string input = "[21-12-2024 16:34:56:678] sensor1   speed(10s/60s/15m) 2377.7 2488.4 2322.2 RPM";
-    int counter = 1;
 
     Converters::ToCSV csvConverter;
-    csvConverter.Convert(input, counter);
+    csvConverter.Convert(input);
     return 0;
 }
 
 void Converters::ToCSV::Convert(std::string line, int counter)
 {
+    int counter = 1;
     BracketToSpace(line, counter);
 }
 
