@@ -81,9 +81,10 @@ void CheckAndSave(std::string lineToCheck, std::string outputFileName, std::stri
 	else if (filterMode == "-s")
 	{
 		std::ofstream outputFile(outputFileName, std::ios::out | std::ios::app);
-		std::regex stringPattern("(accepted)");
+		std::regex stringPatternAccept("(accepted)");
+		std::regex stringPatternReject("(rejected)");
 
-		if (std::regex_search(lineToCheck, stringPattern))
+		if (std::regex_search(lineToCheck, stringPatternAccept) || std::regex_search(lineToCheck, stringPatternReject))
 		{
 			if (!outputFile.is_open())
 			{
@@ -99,6 +100,10 @@ void CheckAndSave(std::string lineToCheck, std::string outputFileName, std::stri
 				++saveCounter;
 			}
 		}
+	}
+	else
+	{
+		return;
 	}
 }
 
@@ -160,30 +165,25 @@ void ReadFromFile(std::string logfilePath, std::string outputFileName, std::stri
 
 int main(int argc, char* argv[])
 {
-	std::string inputPath = argv[1];
-	std::string outputPath = argv[2];
-
-	if (inputPath == outputPath)
+	if (argc <= 2)
 	{
-		messenger.ErrorMsg_IdenticalIO();
+		messenger.ErrorMsg_TooFewArgs();
 		return 1;
 	}
-	else
+	else if (argc >= 3)
 	{
-		switch (argc)
+		std::string inputPath = argv[1];
+		std::string outputPath = argv[2];
+
+		if (inputPath == outputPath)
 		{
-			case 0:
-				messenger.ErrorMsg_TooFewArgs();
-				return 1;
-
-			case 1:
-				messenger.ErrorMsg_TooFewArgs();
-				return 1;
-
-			case 2:
-				messenger.ErrorMsg_TooFewArgs();
-				return 1;
-
+			messenger.ErrorMsg_IdenticalIO();
+			return 1;
+		}
+		else
+		{
+			switch (argc)
+			{
 			case 3:
 				system("cls");
 				ReadFromFile(argv[1], argv[2]);
@@ -191,15 +191,24 @@ int main(int argc, char* argv[])
 				return 0;
 
 			case 4:
-				system("cls");
-				ReadFromFile(argv[1], argv[2], argv[3]);
-				messenger.StatusMsg_Finished();
-				return 0;
+				if (argv[3] == "-h" || "-j" || "-s")
+				{
+					system("cls");
+					ReadFromFile(argv[1], argv[2], argv[3]);
+					messenger.StatusMsg_Finished();
+					return 0;
+				}
+				else
+				{
+					messenger.ErrorMsg_BadMode(argv[3]);
+					return 1;
+				}
 
 			default:
 				messenger.ErrorMsg_Generic();
 				return 1;
 				break;
+			}
 		}
 	}
 }

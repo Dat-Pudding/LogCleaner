@@ -1,6 +1,5 @@
 #include "Messenger.h"
 #include <iostream>
-#include <string>
 
 void Messenger::ErrorMsg_TooFewArgs()
 {
@@ -20,6 +19,20 @@ void Messenger::ErrorMsg_IdenticalIO()
 			  << "ERROR: Output file can't be identical to the input file! \n"
 			  << "<======================================== INFO ========================================>\n"
 			  << " | Please use this format: LogCleaner.exe <logfilePath> <outputFileName> <filterMode> |\n"
+			  << "<======================================================================================>\n\n"
+			  << std::endl;
+	system("pause");
+}
+void Messenger::ErrorMsg_BadMode(std::string filterMode)
+{
+	system("cls");
+	std::cout << "\n"
+			  << "ERROR: '" << filterMode << "' is not a valid filterMode\n"
+			  << "<======================================== INFO ========================================>\n"
+			  << " | Available filterMode variants are:                                                 |\n"
+			  << " | -h          Extracts hashrate information in the log file                          |\n"
+			  << " | -j          Extracts 'new job' information in the log file                         |\n"
+			  << " | -s          Extracts 'accepted/rejected' share information in the log file         |\n"
 			  << "<======================================================================================>\n\n"
 			  << std::endl;
 	system("pause");
@@ -71,10 +84,8 @@ void Messenger::ErrorMsg_Generic()
 
 void Messenger::StatusMsg_Searching(std::string logfilePath)
 {
-	std::cout << "Trying to find log file "
-			<< logfilePath
-			<< "..."
-			<< std::endl;
+	std::cout << "Trying to find log file " << logfilePath << "..."
+			  << std::endl;
 }
 void Messenger::StatusMsg_Checking(unsigned int lineCounter)
 {
@@ -85,9 +96,7 @@ void Messenger::StatusMsg_Checking(unsigned int lineCounter)
 }
 void Messenger::StatusMsg_Saving(unsigned int saveCounter)
 {
-	std::cout << "[#"
-			  << saveCounter
-			  << "] saved!"
+	std::cout << "[#" << saveCounter << "] saved!"
 			  << std::endl;
 }
 void Messenger::StatusMsg_Finished()
