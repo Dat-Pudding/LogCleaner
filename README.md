@@ -26,6 +26,37 @@ And the individual parameters consist of the following:
 | `<extractFilePath>`  | The file path AND name of the desired output file. Can be absolute or relative to the executable. Has to be explicit with the file extension and if a subdirectory is desired as target this subdirectory has to already exist. Example: `./cleanedLogs/hashRates.log`  |
 | `<filterMode>`  | Defines the type of extracted information. Can be either `-h` to extract hashrate information, `-j` to extract information about new jobs being received or `-s` to extract information about accepted and rejected shares.  |
 
+#### Examples
+##### Windows
+Assuming we're on a windows machine, have placed the `LogCleaner.exe` in the same directory as our `xmrig.exe` and its `start.cmd` in `C:\xmrig\`. In this scenario the log-file is set to just be in the same directory with the name `miner.log`. We want our output files to be generated in a subdirectory called `cleanedLogs` and we only want to know at which times we got shares accepted, this information should be stored in a file called `shares` without an file extension.
+
+To achieve this we have XMRig run for a while with enabled log-files and then close it. Afterwards we start a CMD or Powershell window and navigate to the directory by typing:
+
+```.cmd
+cd C:\xmrig\
+```
+
+After pressing the `Enter` key, we verify that we are at the right place by typing:
+
+```.cmd
+dir
+```
+
+This should show all files in our current directory of which we care about `LogCleaner.exe` and `miner.log` being present. To create our desired target directory we type in:
+
+```.cmd
+mkdir cleanedLogs
+```
+
+Using the `dir` command again should now also lost a directory named `cleanedLogs`. Now that we're all set we actually get started by typing in:
+
+```.cmd
+LogCleaner.exe miner.log ./cleanedLogs/shares -s
+```
+
+Now it should start working while showing its current status and close itself upon finishing. You can now open your extracted file however you want to process the information.
+> **NOTE:** The output being proper comma-separated values to improve usability with data processing software is currently in the making.
+
 ### Windows
 You can either build it yourself from the code in `/source/` or wait for me to upload the compiled executable.
 
