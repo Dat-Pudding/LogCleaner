@@ -3,7 +3,7 @@
 
 namespace Converters
 {
-    class HasLogs
+    class HashLog
     {
         class ToCSV
         {
@@ -15,6 +15,11 @@ namespace Converters
             void SpaceToComma(std::string, int);
             void Polisher(std::string, int);
             void Emitter(std::string, int);
+
+            const char space = ' ';
+            const char openBracket = '[';
+            const char closeBracket = ']';
+            const char comma = ',';
         };
 
         class ToSQL
@@ -23,7 +28,7 @@ namespace Converters
         };
     }
 
-    class ShareLogs
+    class ShareLog
     {
         class ToCSV
         {
@@ -35,6 +40,11 @@ namespace Converters
             void SpaceToComma(std::string, int);
             void Polisher(std::string, int);
             void Emitter(std::string, int);
+
+            const char space = ' ';
+            const char openBracket = '[';
+            const char closeBracket = ']';
+            const char comma = ',';
         }
 
 
