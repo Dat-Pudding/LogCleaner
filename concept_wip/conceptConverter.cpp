@@ -2,22 +2,13 @@
 #include <string>
 #include <vector>
 
-int main()
-{
-    
-
-    Converters::ToCSV csvConverter;
-    csvConverter.Convert(input);
-    return 0;
-}
-
-void Converters::ToCSV::Convert(std::string line, int counter)
+void Converters::HashLogs::ToCSV::Convert(std::string line, int counter)
 {
     int counter = 1;
     BracketToSpace(line, counter);
 }
 
-void Converters::ToCSV::BracketToSpace(std::string line, int counter)
+void Converters::HashLogs::ToCSV::BracketToSpace(std::string line, int counter)
 {
     std::string lineCache = line;
 
@@ -37,7 +28,7 @@ void Converters::ToCSV::BracketToSpace(std::string line, int counter)
 // at this point
 }
 
-void Converters::ToCSV::EqualiseSpaces(std::string line, int counter)
+void Converters::HashLogs::ToCSV::EqualiseSpaces(std::string line, int counter)
 {
     int prevPos = 0;
     int currentPos = 1;
@@ -74,7 +65,7 @@ void Converters::ToCSV::EqualiseSpaces(std::string line, int counter)
 // at this point
 }
 
-void Converters::ToCSV::SpaceToComma(std::string line, int counter)
+void Converters::HashLogs::ToCSV::SpaceToComma(std::string line, int counter)
 {
     std::string lineCache = line;
 
@@ -95,7 +86,7 @@ void Converters::ToCSV::SpaceToComma(std::string line, int counter)
 // at this point
 }
 
-void Converters::ToCSV::Polisher(std::string line, int counter)
+void Converters::HashLogs::ToCSV::Polisher(std::string line, int counter)
 {
     char filterMask[4] = { ',' , 'R', 'P', 'M' };
     std::string lineCache = line;
@@ -180,7 +171,7 @@ void Converters::ToCSV::Polisher(std::string line, int counter)
 // at this point
 }
 
-void Converters::ToCSV::Emitter(std::string line, int counter)
+void Converters::HashLogs::ToCSV::Emitter(std::string line, int counter)
 {
     std::cout << "Converted line [#" << counter << "]" << std::endl;
     std::cout << "Result: \n" << line << std::endl;
