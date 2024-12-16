@@ -2,21 +2,6 @@
 #include <string>
 #include <vector>
 
-namespace Converters
-{
-    class ToCSV
-    {
-    public:
-        void Convert(std::string);
-    private:
-        void BracketToSpace(std::string, int);
-        void EqualiseSpaces(std::string, int);
-        void SpaceToComma(std::string, int);
-        void Polisher(std::string, int);
-        void Emitter(std::string, int);
-    };
-};
-
 int main()
 {
     std::string input = "[21-12-2024 16:34:56:678] sensor1   speed(10s/60s/15m) 2377.7 2488.4 2322.2 RPM";
