@@ -50,5 +50,5 @@ LogCleaner.exe nameOfLogfile nameOfDesiredOutputFile filterMode
 #### Usage
  1. Start up XMRig as you normally would with the `start.cmd`
  2. Mine happily
- 3. As soon as you hit `Ctrl`+`C` or close XMRig's windows you can watch it go through the generated log-file
+ 3. As soon as you hit `Ctrl`+`C` or close XMRig's window you can watch it go through the generated log-file
  5. Once done, notice the newly generated file of the specified name in the specified directory 
