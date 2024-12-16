@@ -1,20 +1,20 @@
 #include <iostream>
 
 // `int counter` here should start at 1
-void Converters::HashLogs::ToCSV::Convert(std::string line, int counter)
+void Converters::HashLog::ToCSV::Convert(std::string line, int counter)
 {
     BracketToSpace(line, counter);
 }
 
-void Converters::HashLogs::ToCSV::BracketToSpace(std::string line, int counter)
+void Converters::HashLog::ToCSV::BracketToSpace(std::string line, int counter)
 {
     std::string lineCache = line;
 
     for (int i = 0; i < line.length(); ++i)
     {
-        if (lineCache[i] == '[' || lineCache[i] == ']')
+        if (lineCache[i] == openBracket || lineCache[i] == closeBracket)
         {
-            lineCache[i] = ' ';
+            lineCache[i] = space;
         }
     }
     line = lineCache;
@@ -22,16 +22,15 @@ void Converters::HashLogs::ToCSV::BracketToSpace(std::string line, int counter)
     EqualiseSpaces(line, counter);
 }
 
-void Converters::HashLogs::ToCSV::EqualiseSpaces(std::string line, int counter)
+void Converters::HashLog::ToCSV::EqualiseSpaces(std::string line, int counter)
 {
     int prevPos = 0;
     int currentPos = 1;
-    char filterMask = ' ';
     std::string lineCache = line;
     
     while (lineCache[currentPos] != '\0')
     {
-        if (lineCache[prevPos] == filterMask && lineCache[currentPos] == filterMask)
+        if (lineCache[prevPos] == space && lineCache[currentPos] == space)
         {
             int newPos = currentPos;
             
@@ -55,15 +54,15 @@ void Converters::HashLogs::ToCSV::EqualiseSpaces(std::string line, int counter)
     SpaceToComma(line, counter);
 }
 
-void Converters::HashLogs::ToCSV::SpaceToComma(std::string line, int counter)
+void Converters::HashLog::ToCSV::SpaceToComma(std::string line, int counter)
 {
     std::string lineCache = line;
 
     for (int i = 0; i < line.length(); ++i)
     {
-        if (lineCache[i] == ' ')
+        if (lineCache[i] == space)
         {
-            lineCache[i] = ',';
+            lineCache[i] = comma;
         }
     }
 
@@ -72,9 +71,8 @@ void Converters::HashLogs::ToCSV::SpaceToComma(std::string line, int counter)
     Polisher(line, counter);
 }
 
-void Converters::HashLogs::ToCSV::Polisher(std::string line, int counter)
+void Converters::HashLog::ToCSV::Polisher(std::string line, int counter)
 {
-    char filterMask[4] = { ',' , 'R', 'P', 'M' };
     std::string lineCache = line;
     
      for (int i = 0; i < line.length(); ++i)
@@ -94,11 +92,9 @@ void Converters::HashLogs::ToCSV::Polisher(std::string line, int counter)
             }
 
             case 31:
-            {
-                std::string filterPhrase = ",speed(10s/60s/15m)";
-                
+            {                
                 auto start = lineCache.begin() + i;
-                auto last = start + filterPhrase.length();
+                auto last = start + infix.length();
 
                 lineCache.erase(start, last);
                 lineCache.shrink_to_fit();
@@ -134,7 +130,7 @@ void Converters::HashLogs::ToCSV::Polisher(std::string line, int counter)
     Emitter(line, counter);
 }
 
-void Converters::HashLogs::ToCSV::Emitter(std::string line, int counter)
+void Converters::HashLog::ToCSV::Emitter(std::string line, int counter)
 {
     std::cout << "Converted line [#" << counter << "] into CSV-compatible format" << std::endl;
     std::cout << "Result: \n" << line << std::endl;
