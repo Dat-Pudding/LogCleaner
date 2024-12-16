@@ -11,33 +11,48 @@ You can run it either manually via command line or append it to your `start.cmd`
 
 For it to have any data to work with it is **obligatory** to enable log-files in XMRig. You can do this by just appending a `-l yourLogfileNameHere`. It does not need a file extension of any sort.
 
-## Windows
+### General usage
+Independent of the platform, the overall usage syntax will always be as follows:
+
+```.sh
+<executable> <logFilePath> <extractFilePath> <filterMode>
+```
+
+And the individual parameters consist of the following:
+| Command/Parameter  | Description |
+| ------------- | ------------- |
+| `<executable>`  | Unless renamed and depending on the platform either `LogCleaner.exe` or `LogCleaner`  |
+| `<logFilePath>`  | The file path AND file name of XMRig's log-file. Can be absolute or relative to the executable. Has to be explicit with the file extension e.g.: `./logs/miner.log`. Should be the same as the one specified in XMRig settings.  |
+| `<extractFilePath>`  | The file path AND name of the desired output file. Can be absolute or relative to the executable. Has to be explicit with the file extension and if a subdirectory is desired as target this subdirectory has to already exist. Example: `./cleanedLogs/hashRates.log`  |
+| `<filterMode>`  | Defines the type of extracted information. Can be either `-h` to extract hashrate information, `-j` to extract information about new jobs being received or `-s` to extract information about accepted and rejected shares.  |
+
+### Windows
 You can either build it yourself from the code in `/source/` or wait for me to upload the compiled executable.
 
 When compiling yourself make sure to use at least `C++17` or newer, since the code utilises the non-experimental `std::filestream` for reading/writing. The code itself was written in a `C++22` environment.
 
-### Manual usage
+#### Manual usage
  1. Open a *CMD* or *Powershell* window
  2. Within the shell navigate to the directory of your `LogCleaner` executable:
 
-```.bat
+```.cmd
 cd DRIVE:\dir\thatContains\LogCleaner.exe
 ```
 > **NOTE:** This likely is your `Download` directory or your build directory if you compiled yourself
 
  3. Enter the following line into your command line, replacing the placeholders to your liking:
      
-```.bat
+```.cmd
 LogCleaner.exe path/of/log-file desired/path/of/extract-file filterMode
 ```
 
  4. Watch it go through the log-file
  5. Notice the newly appeared file of the specified name in the specified directory 
 
-### Usage via `start.cmd`
+#### Usage via `start.cmd`
 To use the LogCleaner from within XMRig we have to quickly set it up for that.
 
-#### Setup
+##### Setup
  1. Put the executable into the same directory as `xmrig.exe`
  2. In this directory open the `start.cmd` for editing 
  3. Insert the following line in-between the lines of your `xmrig.exe` setup and the `pause` command and fill in the placeholders to your liking:
@@ -47,7 +62,7 @@ LogCleaner.exe nameOfLogfile nameOfDesiredOutputFile filterMode
 ```
  4. Save and close the changed `start.cmd` file
 
-#### Usage
+##### Usage
  1. Start up XMRig as you normally would with the `start.cmd`
  2. Mine happily
  3. As soon as you hit `Ctrl`+`C` or close XMRig's window you can watch it go through the generated log-file
