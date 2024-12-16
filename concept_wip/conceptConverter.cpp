@@ -107,7 +107,7 @@ void Converters::HashLog::ToCSV::Polisher(std::string line, int counter)
             case 52:
             {
                 auto first = lineCache.begin() + i;
-                auto last = lineCache.end();
+                auto last = suffix.length();
 
                 lineCache.erase(first, last);
 ;
