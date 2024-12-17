@@ -23,8 +23,8 @@ And the individual parameters consist of the following:
 | ------------- | ------------- |
 | `<executable>`  | Unless renamed and depending on the platform either `LogCleaner.exe` or `LogCleaner`  |
 | `<logFilePath>`  | The file path AND file name of XMRig's log-file. <br></br><li>Can be absolute or relative to the executable</li><li>Has to be explicit with the file extension e.g.: `./logs/miner.log`</li><li>Should be the same as the one specified in XMRig settings</li>  |
-| `<extractFilePath>`  | The file path AND name of the desired output file. Can be absolute or relative to the executable. Has to be explicit with the file extension and if a subdirectory is desired as target this subdirectory has to already exist. Example: `./cleanedLogs/hashRates.log`  |
-| `<filterMode>`  | Defines the type of extracted information. Can be either `-h` to extract hashrate information, `-j` to extract information about new jobs being received or `-s` to extract information about accepted and rejected shares.  |
+| `<extractFilePath>`  | The file path AND name of the desired output file.<br></br><li>Can be absolute or relative to the executable</li><li>Has to be explicit with the file extension if the target file has one</li><li>If a subdirectory is desired as target, this subdirectory has to already exist</li> Example: `./cleanedLogs/hashRates.log`  |
+| `<filterMode>`  | Defines the type of extracted information<li>`-h` extracts hashrate information</li><li>`-j` extracts new-job-reception information</li><li>`-s` extracts accepted/rejected share information</li>  |
 
 #### Examples
 ##### Usage example - Windows
