@@ -20,7 +20,11 @@ namespace Converters
             void SpaceToComma(std::string&, int&);
             void Polisher(std::string&, int&)
             {
+            private:
                 void RemovePhrase(std::string&, std::smatch, std::regex);
+                const std::string phrase1 = ",speed,10s/60s/15m";
+                const std::string phrase2 = ",H/s,max";
+                const std::string phrase3 = ",H/s";
             }
             void Emitter(std::string&, int&);
 
