@@ -92,26 +92,17 @@ void Converters::HashLog::ToCSV::Polisher(std::string& line, int& counter)
 
     if (std::regex_search(lineCache, matchStore, pattern1))
     {
-        auto p1_begin = matchStore.position(i);
-        auto p1_end = p1_begin + phrase1.length() - 1;
-        lineCache.erase(p1_begin, p1_end);
-        lineCache.shrink_to_fit();
+        RemovePhrase(lineCache, matchStore, pattern1);
     }
 
     if (std::regex_search(lineCache, matchStore, pattern2))
     {
-        auto p2_begin = matchStore.position(i);
-        auto p2_end = p2_begin + phrase2.length() - 1;
-        lineCache.erase(p2_begin, p2_end);
-        lineCache.shrink_to_fit();
+        RemovePhrase(lineCache, matchStore, pattern2);
     }
     
     if (std::regex_search(lineCache, matchStore, pattern3))
     {
-        auto p3_begin = matchStore.position(i);
-        auto p3_end = p3_begin + phrase3.length();
-        lineCache.erase(p3_begin, p3_end);
-        lineCache.shrink_to_fit();
+        RemovePhrase(lineCache, matchStore, pattern1);
     }
 
     line = lineCache;
@@ -119,9 +110,15 @@ void Converters::HashLog::ToCSV::Polisher(std::string& line, int& counter)
     Emitter(line, counter);
 }
 
+void Converters::HashLog::ToCSV::Polisher::RemovePhrase(std::string& lineCache, std::smatch matchStore, std::regex pattern)
+{
+    auto phraseBegin = matchStore.position(0);
+    auto phraseEnd = matchStore.position(0) + matchStore.length(0);
+    lineCache.erase(phraseBegin, phraseEnd);
+    lineCache.shrink_to_fit();
+}
 
 void Converters::HashLog::ToCSV::Emitter(std::string& line, int& counter)
 {
     std::cout << "Converted line [#" << counter << "] into CSV-compatible format" << std::endl;
-    outputLine = line;
 }
