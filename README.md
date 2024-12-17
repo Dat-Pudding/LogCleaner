@@ -9,7 +9,7 @@ When run in default mode it will take the specified logfile and extract all line
 ## How to use
 You can run it either manually via command line or append it to your `start.cmd` in the XMRig directory to have it run as soon as XMRig stops and therefore automatically stripping the most recent log-file.
 
-For it to have any data to work with it is **obligatory** to enable log-files in XMRig. You can do this by just appending a `-l yourLogfileNameHere`. It does not need a file extension of any sort. Normally using `.log` makes things easier and faster.
+For it to have any data to work with it is **obligatory** to enable log-files in XMRig. You can do this by just appending a `-l yourLogfileNameHere` to your usual `xmrig.exe -bla blabla blabla.bla -bla blabla` setup line. It does not need a file extension of any sort but using `.log` makes things easier and faster to comprehend on a gaze what's what.
 
 ### General usage
 Independent of the platform, the overall usage syntax will always be as follows:
@@ -27,7 +27,7 @@ And the individual parameters consist of the following:
 | `<filterMode>`  | Defines the type of extracted information. Can be either `-h` to extract hashrate information, `-j` to extract information about new jobs being received or `-s` to extract information about accepted and rejected shares.  |
 
 #### Examples
-##### Windows
+##### Usage example - Windows
 Assuming we're on a windows machine, have placed the `LogCleaner.exe` in the same directory as our `xmrig.exe` and its `start.cmd` in `C:\xmrig\`. In this scenario the log-file is set to just be in the same directory with the name `miner.log`. We want our output files to be generated in a subdirectory called `cleanedLogs` and we only want to know at which times we got shares accepted, this information should be stored in a file called `shares` without an file extension.
 
 To achieve this we have XMRig run for a while with enabled log-files and then close it. Afterwards we start a CMD or Powershell window and navigate to the directory by typing:
@@ -57,12 +57,12 @@ LogCleaner.exe miner.log ./cleanedLogs/shares -s
 Now it should start working while showing its current status and close itself upon finishing. You can now open your extracted file however you want to process the information.
 > **NOTE:** The output being proper comma-separated values to improve usability with data processing software is currently in the making. For the first (and already outdated) converter prototype is available in [/concept_wip/](/concept_wip/)
 
-### Windows
+### Usage on Windows
 You can either build it yourself from the code in `/source/` or wait for me to upload the compiled executable.
 
 When compiling yourself make sure to use at least `C++17` or newer, since the code utilises the non-experimental `std::filestream` for reading/writing. The code itself was written in a `C++22` environment.
 
-#### Manual usage
+#### Manual usage - Windows 
  1. Open a *CMD* or *Powershell* window
  2. Within the shell navigate to the directory of your `LogCleaner` executable:
 
@@ -80,7 +80,7 @@ LogCleaner.exe path/of/log-file desired/path/of/extract-file filterMode
  4. Watch it go through the log-file
  5. Notice the newly appeared file of the specified name in the specified directory 
 
-#### Usage via `start.cmd`
+#### Usage via `start.cmd`- Windows
 To use the LogCleaner from within XMRig we have to quickly set it up for that.
 
 ##### Setup
