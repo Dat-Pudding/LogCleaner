@@ -40,13 +40,13 @@ LogCleaner miner.log ./cleanedLogs/hashes.csv -h
 #### Usage examples - Windows
 Given a directory structure like this:
 ```
-[C:\]---[\xmrig\]---[\cleanedLogs\]
-      |-[<other>] |-[SHA256sums]
-      |-[<stuff>] |-[LogCleaner.exe]
-                  |-[miner.log]
-                  |-[WinRing64]
-                  |-[start.cmd]
-                  |-[xmrig.exe]
+[C:\]═╦[\xmrig\]═╦[\cleanedLogs\]
+      ╠[<other>] ╠[SHA256sums]
+      ╚[<stuff>] ╠[LogCleaner.exe]
+                 ╠[miner.log]
+                 ╠[WinRing64]
+                 ╠[start.cmd]
+                 ╚[xmrig.exe]
 ```
 We can either directly run it from the command line with:
 ```.cmd
