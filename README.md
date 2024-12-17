@@ -75,8 +75,19 @@ LogCleaner.exe miner.log .\cleanedLogs\hashes.csv -h
 rm miner.log
 pause
 ```
+Since multi-filtering (more than one filterMode at a time) isn't yet implemented, to get all available output information we have to write it so it looks like this:
+```.cmd
+cd
+xmrig.exe <YOUR_MINING_CREDENTIALS> -l miner.log
+LogCleaner.exe miner.log .\cleanedLogs\hashes.csv -h
+LogCleaner.exe miner.log .\cleanedLogs\hashes.csv -s
+LogCleaner.exe miner.log .\cleanedLogs\hashes.csv -j
+rm miner.log
+pause
+```
 
-> **NOTE:** The output being proper comma-separated values to improve usability with data processing software is currently in the making. The first (and already outdated) converter prototype is readable in [/concept_wip/](/concept_wip/)
+> **NOTE:** The output being proper comma-separated values to improve usability with data processing software is currently in the making. 
+The first (and already outdated) converter prototype is readable in [/concept_wip/](/concept_wip/)
 
 ### Compiling
 You can either build it yourself from the code in `/source/` or wait for me to upload the compiled executable.
