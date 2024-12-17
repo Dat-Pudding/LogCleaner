@@ -55,7 +55,7 @@ LogCleaner.exe miner.log ./cleanedLogs/shares -s
 ```
 
 Now it should start working while showing its current status and close itself upon finishing. You can now open your extracted file however you want to process the information.
-> **NOTE:** The output being proper comma-separated values to improve usability with data processing software is currently in the making. For the first (and already outdated) converter prototype is available in ["/concept_wip/"](#./concept_wip/)
+> **NOTE:** The output being proper comma-separated values to improve usability with data processing software is currently in the making. For the first (and already outdated) converter prototype is available in ["/concept_wip/"](https://github.com/Dat-Pudding/LogCleaner/tree/main/concept_wip)
 
 ### Windows
 You can either build it yourself from the code in `/source/` or wait for me to upload the compiled executable.
