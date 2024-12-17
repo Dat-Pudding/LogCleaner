@@ -54,9 +54,9 @@ C:\xmrig\LogCleaner.exe miner.log .\cleanedLogs\hashes.csv -h
 ```
 After which we'll find `hashes.csv` within the `\cleanedLogs\` directory, containing our extracted information and making our structure look like this:
 ```
-[C:\]═╦═[\xmrig\]═╦═[\cleanedLogs\]═══[hashes.csv]
-      ╠═[<other>] ╠═[other]
-      ╚═[<stuff>] ╚═[stuff]
+[C:\]═╦[\xmrig\]═╦[\cleanedLogs\]══[hashes.csv]
+      ╠[<other>] ╠[other]
+      ╚[<stuff>] ╚[stuff]
 ```
 
 Or in case that we want to keep it updating the output after each mining session we simply edit XMRig's `start.cmd` content from this:
