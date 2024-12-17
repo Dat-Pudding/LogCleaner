@@ -9,7 +9,7 @@ When run in default mode it will take the specified logfile and extract all line
 ## How to use
 You can run it either manually via command line or append it to your `start.cmd` in the XMRig directory to have it run as soon as XMRig stops and therefore automatically stripping the most recent log-file.
 
-For it to have any data to work with it is **obligatory** to enable log-files in XMRig. You can do this by just appending a `-l yourLogfileNameHere`. It does not need a file extension of any sort.
+For it to have any data to work with it is **obligatory** to enable log-files in XMRig. You can do this by just appending a `-l yourLogfileNameHere`. It does not need a file extension of any sort. Normally using `.log` makes things easier and faster.
 
 ### General usage
 Independent of the platform, the overall usage syntax will always be as follows:
@@ -55,7 +55,7 @@ LogCleaner.exe miner.log ./cleanedLogs/shares -s
 ```
 
 Now it should start working while showing its current status and close itself upon finishing. You can now open your extracted file however you want to process the information.
-> **NOTE:** The output being proper comma-separated values to improve usability with data processing software is currently in the making.
+> **NOTE:** The output being proper comma-separated values to improve usability with data processing software is currently in the making. For the first (and already outdated) converter prototype is available in ["/concept_wip/"](#./concept_wip/)
 
 ### Windows
 You can either build it yourself from the code in `/source/` or wait for me to upload the compiled executable.
