@@ -77,9 +77,7 @@ void Converters::HashLog::ToCSV::SpaceToComma(std::string& line, int& counter)
 void Converters::HashLog::ToCSV::Polisher(std::string& line, int& counter)
 {
     std::string lineCache = line;
-    std::string phrase1 = ",speed,10s/60s/15m";
-    std::string phrase2 = ",H/s,max";
-    std::string phrase3 = ",H/s";
+
 
     std::smatch matchStore;
     std::regex pattern1((phrase1));
