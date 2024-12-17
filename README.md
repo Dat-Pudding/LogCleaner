@@ -63,20 +63,20 @@ Or in case that we want to keep it updating the output after each mining session
 ```.cmd
 @echo off
 cd 
-xmrig.exe 
+xmrig.exe <YOUR_MINING_CREDENTIALS> -l miner.log
 pause
 ```
 To this:
 ```.cmd
 @echo off
 cd
-xmrig.exe
+xmrig.exe <YOUR_MINING_CREDENTIALS> -l miner.log
 LogCleaner.exe miner.log .\cleanedLogs\hashes.csv -h
 rm miner.log
 pause
 ```
 
-> **NOTE:** The output being proper comma-separated values to improve usability with data processing software is currently in the making. For the first (and already outdated) converter prototype is available in [/concept_wip/](/concept_wip/)
+> **NOTE:** The output being proper comma-separated values to improve usability with data processing software is currently in the making. The first (and already outdated) converter prototype is readable in [/concept_wip/](/concept_wip/)
 
 ### Compiling
 You can either build it yourself from the code in `/source/` or wait for me to upload the compiled executable.
