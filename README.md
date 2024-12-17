@@ -72,7 +72,7 @@ To this:
 cd
 xmrig.exe <YOUR_MINING_CREDENTIALS> -l miner.log
 LogCleaner.exe miner.log .\cleaned\hashes.csv -h
-rm miner.log
+del miner.log
 pause
 ```
 Since multi-filtering (more than one filterMode at a time) isn't yet implemented, to get all available output information we have to write it so it looks like this:
@@ -82,7 +82,7 @@ xmrig.exe <YOUR_MINING_CREDENTIALS> -l miner.log
 LogCleaner.exe miner.log .\cleaned\hashes.csv -h
 LogCleaner.exe miner.log .\cleaned\shares.csv -s
 LogCleaner.exe miner.log .\cleaned\jobs.csv -j
-rm miner.log
+del miner.log
 pause
 ```
 This will result in our exemplary directory structure looking like this:
@@ -91,6 +91,9 @@ This will result in our exemplary directory structure looking like this:
       ╠[<other>] ╠[other]      ╠[shares.csv]
       ╚[<stuff>] ╚[stuff]      ╚[jobs.csv]
 ```
+
+We have added `del miner.log` as to mitigate already stripped lines from being read twice. Leave it out if you have other ways of dealing with duplicate lines in e.g. your data processing software.
+
 > **NOTE:** The output being proper comma-separated values to improve usability with data processing software is currently in the making. 
 The first (and already outdated) converter prototype is readable in [/concept_wip/](/concept_wip/)
 
