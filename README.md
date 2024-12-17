@@ -40,7 +40,7 @@ LogCleaner miner.log ./cleanedLogs/hashes.csv -h
 #### Usage examples - Windows
 Given a directory structure like this:
 ```
-[C:\]═╦[\xmrig\]═╦[\cleanedLogs\]
+[C:\]═╦[\xmrig\]═╦[\cleaned\]
       ╠[<other>] ╠[SHA256sums]
       ╚[<stuff>] ╠[LogCleaner.exe]
                  ╠[miner.log]
@@ -50,11 +50,11 @@ Given a directory structure like this:
 ```
 We can either directly run it from the command line with:
 ```.cmd
-C:\xmrig\LogCleaner.exe miner.log .\cleanedLogs\hashes.csv -h
+C:\xmrig\LogCleaner.exe miner.log .\cleaned\hashes.csv -h
 ```
 After which we'll find `hashes.csv` within the `\cleanedLogs\` directory, containing our extracted information and making our structure look like this:
 ```
-[C:\]═╦[\xmrig\]═╦[\cleanedLogs\]══[hashes.csv]
+[C:\]═╦[\xmrig\]═╦[\cleaned\]══[hashes.csv]
       ╠[<other>] ╠[other]
       ╚[<stuff>] ╚[stuff]
 ```
@@ -71,7 +71,7 @@ To this:
 @echo off
 cd
 xmrig.exe <YOUR_MINING_CREDENTIALS> -l miner.log
-LogCleaner.exe miner.log .\cleanedLogs\hashes.csv -h
+LogCleaner.exe miner.log .\cleaned\hashes.csv -h
 rm miner.log
 pause
 ```
@@ -79,13 +79,18 @@ Since multi-filtering (more than one filterMode at a time) isn't yet implemented
 ```.cmd
 cd
 xmrig.exe <YOUR_MINING_CREDENTIALS> -l miner.log
-LogCleaner.exe miner.log .\cleanedLogs\hashes.csv -h
-LogCleaner.exe miner.log .\cleanedLogs\hashes.csv -s
-LogCleaner.exe miner.log .\cleanedLogs\hashes.csv -j
+LogCleaner.exe miner.log .\cleaned\hashes.csv -h
+LogCleaner.exe miner.log .\cleaned\shares.csv -s
+LogCleaner.exe miner.log .\cleaned\jobs.csv -j
 rm miner.log
 pause
 ```
-
+This will result in our exemplary directory structure looking like this:
+```
+[C:\]═╦[\xmrig\]═╦[\cleaned\]═╦[hashes.csv]
+      ╠[<other>] ╠[other]      ╠[shares.csv]
+      ╚[<stuff>] ╚[stuff]      ╚[jobs.csv]
+```
 > **NOTE:** The output being proper comma-separated values to improve usability with data processing software is currently in the making. 
 The first (and already outdated) converter prototype is readable in [/concept_wip/](/concept_wip/)
 
