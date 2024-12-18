@@ -93,13 +93,24 @@ void CheckAndSave(std::string lineToCheck, std::string outputFileName, std::stri
 			}
 			else if (outputFile.is_open())
 			{
-				outputFile << lineToCheck
-						   << std::endl;
+       if (isFirstLine)
+			    {
+				       outputFile << "date,time,system,status,server,diff,height,txCount" << std::endl;
+				       isFirstLine = false;
+			    }
+			    if (!isFirstLine)
+		    	 {
+				       converter.Convert(lineToCheck);
+				       std::string lineToOutput = converter.outputLine;
+				       outputFile << lineToOutput
+					<< std::endl;
 
-				messenger.StatusMsg_Saving(saveCounter);
-				++saveCounter;
-			}
-		}
+				       messenger.StatusMsg_Saving(saveCounter);
+				       ++saveCounter;
+	        		 outputFile << lineToCheck
+						   << std::endl;
+		     	}
+	   }
 	}
 	else if (filterMode == "-s")
 	{
