@@ -91,8 +91,8 @@ pause
 This will result in our exemplary directory structure looking like this:
 ```
 [C:\]═╦[\xmrig\]═╦[\cleaned\]═╦[hashes.csv]
-      ╠[<other>] ╠[other]      ╠[shares.csv]
-      ╚[<stuff>] ╚[stuff]      ╚[jobs.csv]
+      ╠[<other>] ╠[other]     ╠[shares.csv]
+      ╚[<stuff>] ╚[stuff]     ╚[jobs.csv]
 ```
 
 We have added `del miner.log` as to mitigate already stripped lines from being read twice. Leave it out if you have other ways of dealing with duplicate lines in e.g. your data processing software.
