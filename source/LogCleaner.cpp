@@ -127,19 +127,19 @@ void CheckAndSave(std::string lineToCheck, std::string outputFileName, std::stri
 			}
 			else if (outputFile.is_open())
 			{
-				if (isFirstLine)
-				{
-					outputFile << "date,time,system,status,numAccept,numReject,difficulty,latency" << std::endl;
-					isFirstLine = false;
-				}
-				if (!isFirstLine)
-				{
-					outputFile << lineToCheck
+			    if (isFirstLine)
+			    	{
+					      outputFile << "date,time,system,status,numAccept,numReject,difficulty,latency" << std::endl;
+					      isFirstLine = false;
+				   }
+			    	if (!isFirstLine)
+		    		{
+			       		outputFile << lineToCheck
 						<< std::endl;
 
-					messenger.StatusMsg_Saving(saveCounter);
-					++saveCounter;
-				}
+					      messenger.StatusMsg_Saving(saveCounter);
+					      ++saveCounter;
+				   }
 			}
 		}
 	}
