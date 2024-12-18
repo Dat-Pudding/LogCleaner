@@ -5,7 +5,7 @@ Purpose-built to extract information about hashrates, accepted/rejected shares a
 > **NOTE:** As of right now it's pretty bare-bones, this will change in the near future.
 
 When run in default mode it will take the specified logfile and extract all lines that contain the hashrate reports with their timestamps.
-By choosing one of the three available filter modes the extracted lines can be set.
+By choosing one of the three available filter modes the lines that should be extracted can be set.
 
 ## How to use
 You can run it either manually via command line or append it to your `start.cmd` in the XMRig directory to have it run as soon as XMRig stops and therefore automatically stripping the most recent log-file.
@@ -16,7 +16,7 @@ You can do this by just appending a `-l yourLogfileNameHere` to your usual `xmri
 ### General usage
 Independent of the platform, the overall usage syntax will always be as follows:
 
-```.sh
+```.cmd
 <executable> <logFilePath> <extractFilePath> <filterMode>
 ```
 
