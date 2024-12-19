@@ -13,7 +13,7 @@ Messenger messenger;
 
 void CheckAndSave(std::string lineToCheck, std::string outputFileName, bool& isFirstLine) // default to hashing logs when no filterMode is given
 {
-	Converters::HashLog::ToCSV converter;
+	Converters::HashLog::ToCSV csvConverter;
 	std::ofstream outputFile(outputFileName, std::ios::out | std::ios::app);
 	std::regex stringPattern("(speed 10s/60s/15m)");
 
@@ -33,8 +33,8 @@ void CheckAndSave(std::string lineToCheck, std::string outputFileName, bool& isF
 			}
 			if (!isFirstLine)
 			{
-				converter.Convert(lineToCheck);
-				std::string lineToOutput = converter.outputLine;
+				csvConverter.Convert(lineToCheck);
+				std::string lineToOutput = csvConverter.outputLine;
 				outputFile << lineToOutput
 					<< std::endl;
 
@@ -44,11 +44,11 @@ void CheckAndSave(std::string lineToCheck, std::string outputFileName, bool& isF
 		}
 	}
 }
-void CheckAndSave(std::string lineToCheck, std::string outputFileName, std::string filterMode, bool& isFirstLine)
+void CheckAndSave(std::string& lineToCheck, std::string outputFileName, std::string filterMode, bool& isFirstLine)
 {
 	if (filterMode == "-h")
 	{
-		Converters::HashLog::ToCSV converter;
+		Converters::HashLog::ToCSV hashConverter;
 		std::ofstream outputFile(outputFileName, std::ios::out | std::ios::app);
 		std::regex stringPattern("(speed 10s/60s/15m)");
 
@@ -68,9 +68,9 @@ void CheckAndSave(std::string lineToCheck, std::string outputFileName, std::stri
 				}
 				if (!isFirstLine)
 				{
-					converter.Convert(lineToCheck);
-					std::string lineToOutput = converter.outputLine;
-					outputFile << lineToCheck
+					hashConverter.Convert(lineToCheck);
+					std::string lineToOutput = hashConverter.outputLine;
+					outputFile << lineToOutput
 							   << std::endl;
 
 					messenger.StatusMsg_Saving(saveCounter);
@@ -81,6 +81,7 @@ void CheckAndSave(std::string lineToCheck, std::string outputFileName, std::stri
 	}
 	else if (filterMode == "-j")
 	{
+		Converters::JobLog::ToCSV jobConverter;
 		std::ofstream outputFile(outputFileName, std::ios::out | std::ios::app);
 		std::regex stringPattern("(new job from)");
 
@@ -93,23 +94,27 @@ void CheckAndSave(std::string lineToCheck, std::string outputFileName, std::stri
 			}
 			else if (outputFile.is_open())
 			{
-     if (isFirstLine)
-			  {
-		  		 outputFile << "date,time,system,status,server,diff,height,txCount" << std::endl;
-	  			 isFirstLine = false;
-  			 }
-  			 if (!isFirstLine)
-  		  {
-	  			 converter.Convert(lineToCheck);
-	  		  std::string lineToOutput = converter.outputLine;
-		  	  outputFile << lineToOutput << std::endl;
-      messenger.StatusMsg_Saving(saveCounter);
-  				++saveCounter;
-		   	}
-	  }
+				if (isFirstLine)
+				{
+					outputFile << "date,time,system,server,diff,algo,height" << std::endl;
+					isFirstLine = false;
+				}
+				if (!isFirstLine)
+				{
+					jobConverter.Convert(lineToCheck);
+					std::string lineToOutput = jobConverter.outputLine;
+					outputFile << lineToOutput
+						<< std::endl;
+
+					messenger.StatusMsg_Saving(saveCounter);
+					++saveCounter;
+				}
+			}
+		}
 	}
 	else if (filterMode == "-s")
 	{
+		Converters::ShareLog::ToCSV shareConverter;
 		std::ofstream outputFile(outputFileName, std::ios::out | std::ios::app);
 		std::regex stringPatternAccept("(accepted)");
 		std::regex stringPatternReject("(rejected)");
@@ -123,19 +128,21 @@ void CheckAndSave(std::string lineToCheck, std::string outputFileName, std::stri
 			}
 			else if (outputFile.is_open())
 			{
-			    if (isFirstLine)
-			    	{
-					      outputFile << "date,time,system,status,numAccept,numReject,difficulty,latency" << std::endl;
-					      isFirstLine = false;
-				   }
-			    	if (!isFirstLine)
-		    		{
-			       		outputFile << lineToCheck
+				if (isFirstLine)
+				{
+					outputFile << "date,time,system,status,numAccept,numReject,difficulty,latency" << std::endl;
+					isFirstLine = false;
+				}
+				if (!isFirstLine)
+				{
+					shareConverter.Convert(lineToCheck);
+					std::string lineToOutput = shareConverter.outputLine;
+					outputFile << lineToOutput
 						<< std::endl;
 
-					      messenger.StatusMsg_Saving(saveCounter);
-					      ++saveCounter;
-				   }
+					messenger.StatusMsg_Saving(saveCounter);
+					++saveCounter;
+				}
 			}
 		}
 	}
