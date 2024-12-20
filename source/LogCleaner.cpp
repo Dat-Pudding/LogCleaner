@@ -13,7 +13,7 @@ Messenger messenger;
 
 void CheckAndSave(std::string lineToCheck, std::string outputFileName, bool& isFirstLine) // default to hashing logs when no filterMode is given
 {
-	Converters::HashLog::ToCSV csvConverter;
+	Converters::HashLog::ToCSV defaultConverter;
 	std::ofstream outputFile(outputFileName, std::ios::out | std::ios::app);
 	std::regex stringPattern("(speed 10s/60s/15m)");
 
@@ -33,8 +33,8 @@ void CheckAndSave(std::string lineToCheck, std::string outputFileName, bool& isF
 			}
 			if (!isFirstLine)
 			{
-				csvConverter.Convert(lineToCheck);
-				std::string lineToOutput = csvConverter.outputLine;
+				defaultConverter.Convert(lineToCheck);
+				std::string lineToOutput = defaultConverter.outputLine;
 				outputFile << lineToOutput
 					<< std::endl;
 
