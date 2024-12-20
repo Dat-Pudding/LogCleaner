@@ -69,7 +69,7 @@ namespace Converters
             private:
                 void RemovePhrase(std::string&, std::smatch&, std::regex&);
 
-                const std::string phrase1 = ",speed,10s/60s/15m";
+                const std::string phrase1 = ",diff";
                 const std::string phrase2 = ",H/s,max";
                 const std::string phrase3 = ",H/s";
             };
