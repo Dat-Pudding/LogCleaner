@@ -70,8 +70,7 @@ namespace Converters
                 void RemovePhrase(std::string&, std::smatch&, std::regex&);
 
                 const std::string phrase1 = ",diff";
-                const std::string phrase2 = ",H/s,max";
-                const std::string phrase3 = ",H/s";
+                const std::string phrase2 = ",ms";
             };
         };
     };
@@ -94,6 +93,8 @@ namespace Converters
             const char openBracket = '[';
             const char closeBracket = ']';
             const char comma = ',';
+            const char openParens = '(';
+            const char closeParens = ')';
 
             class Polisher
             {
@@ -103,9 +104,11 @@ namespace Converters
             private:
                 void RemovePhrase(std::string&, std::smatch&, std::regex&);
 
-                const std::string phrase1 = ",speed,10s/60s/15m";
-                const std::string phrase2 = ",H/s,max";
-                const std::string phrase3 = ",H/s";
+                const std::string phrase1 = ",from";
+                const std::string phrase2 = ",algo";
+                const std::string phrase3 = ",diff";
+                const std::string phrase4 = ",height";
+                const std::string phrase5 = ",tx";
             };
         };
     };
