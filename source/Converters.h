@@ -56,6 +56,9 @@ namespace Converters
             const char space = ' ';
             const char openBracket = '[';
             const char closeBracket = ']';
+            const char openParens = '(';
+            const char closeParens = ')';
+            const char forwardSlash = '/';
             const char comma = ',';
 
             class Polisher
