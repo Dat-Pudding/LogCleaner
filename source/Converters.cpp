@@ -112,11 +112,11 @@ int Converters::ShareLog::ToCSV::counter = 1;
 
 std::string Converters::ShareLog::ToCSV::Convert(std::string& line)
 {
-    BracketToSpace(line);
+    SymbolToSpace(line);
     ++counter;
     return outputLine;
 }
-void Converters::ShareLog::ToCSV::BracketToSpace(std::string& line)
+void Converters::ShareLog::ToCSV::SymbolToSpace(std::string& line)
 {
     std::string lineCache = line;
     
@@ -214,7 +214,7 @@ void Converters::ShareLog::ToCSV::Polisher::RemovePhrase(std::string& lineCache,
     lineCache.shrink_to_fit();
 }
 
-// ============================ ShareLog ===============================
+// ============================ JobLog ===============================
 std::string Converters::JobLog::ToCSV::outputLine = "";
 int Converters::JobLog::ToCSV::counter = 1;
 
