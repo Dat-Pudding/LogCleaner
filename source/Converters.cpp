@@ -119,14 +119,15 @@ std::string Converters::ShareLog::ToCSV::Convert(std::string& line)
 void Converters::ShareLog::ToCSV::BracketToSpace(std::string& line)
 {
     std::string lineCache = line;
-
+    
     for (int i = 0; i < line.length(); ++i)
     {
-        if (lineCache[i] == openBracket || lineCache[i] == closeBracket)
+        if (lineCache[i] == openBracket || lineCache[i] == closeBracket || lineCache[i] == openParens || lineCache[i] == closeParens || lineCache[i] == forwardSlash)
         {
             lineCache[i] = space;
         }
     }
+    
     line = lineCache;
     EqualiseSpaces(line);
 }
