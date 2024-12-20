@@ -9,7 +9,7 @@ std::string Converters::HashLog::ToCSV::Convert(std::string& line)
     ++counter;
     return outputLine;
 }
-void Converters::HashLog::ToCSV::BracketToSpace(std::string& line)
+void Converters::HashLog::ToCSV::SymbolToSpace(std::string& line)
 {
     std::string lineCache = line;
 
@@ -198,10 +198,6 @@ void Converters::ShareLog::ToCSV::Polisher::Polish(std::string& line)
         RemovePhrase(lineCache, matchStore, pattern2);
     }
 
-    if (std::regex_search(lineCache, matchStore, pattern3))
-    {
-        RemovePhrase(lineCache, matchStore, pattern3);
-    }
     line = lineCache;
     line.shrink_to_fit();
     outputLine = line;
@@ -230,7 +226,7 @@ void Converters::JobLog::ToCSV::BracketToSpace(std::string& line)
 
     for (int i = 0; i < line.length(); ++i)
     {
-        if (lineCache[i] == openBracket || lineCache[i] == closeBracket)
+        if (lineCache[i] == openBracket || lineCache[i] == closeBracket || lineCache[i] == openParens || lineCache[i] == closeParens)
         {
             lineCache[i] = space;
         }
@@ -290,6 +286,8 @@ void Converters::JobLog::ToCSV::Polisher::Polish(std::string& line)
     std::regex pattern1((phrase1));
     std::regex pattern2((phrase2));
     std::regex pattern3((phrase3));
+    std::regex pattern3((phrase4));
+    std::regex pattern3((phrase5));
 
     auto lineCacheStart = lineCache.begin();
     lineCache.erase(lineCacheStart);
@@ -308,6 +306,14 @@ void Converters::JobLog::ToCSV::Polisher::Polish(std::string& line)
     if (std::regex_search(lineCache, matchStore, pattern3))
     {
         RemovePhrase(lineCache, matchStore, pattern3);
+    }
+    if (std::regex_search(lineCache, matchStore, pattern4))
+    {
+        RemovePhrase(lineCache, matchStore, pattern4);
+    }
+    if (std::regex_search(lineCache, matchStore, pattern5))
+    {
+        RemovePhrase(lineCache, matchStore, pattern5);
     }
     line = lineCache;
     line.shrink_to_fit();
