@@ -12,7 +12,7 @@ namespace CustomUtils
 {
     class IO
     {
-        class Processor
+        class TextFileProcessor
         {
         public:
             void DelegateLine(std::string&, std::string&, bool&); // Defaults to filterMode '-h', then follows normal procedure
