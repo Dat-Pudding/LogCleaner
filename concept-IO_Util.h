@@ -8,19 +8,25 @@
 #include "Messenger.h"
 #include "Converters.h"
 
-namespace IO_Util
+namespace CustomUtils
 {
-    namespace fs = std::filesystem;
-    unsigned int saveCounter = 1;
-    class DefaultIO
+    class IO
     {
-        void CheckAndSave(std::string, std::string, bool&) // default to hashing logs when no filterMode is given
-        void ReadFromFile(std::string, std::string, bool&)
+        class DefaultProcessor
+        {
+        public:
+            void CheckAndSave(std::string, std::string, bool&); // default to hashing logs when no filterMode is given
+            void ReadFile(std::string, std::string, bool&);
+        private:
+            unsigned int saveCounter = 1;
+        }
+        class Processor
+        {
+        public:
+            void CheckASave(std::string&, std::string, std::string, bool&);
+            void ReadFile(std::string, std::string, std::string, bool&);
+        private:
+            unsigned int saveCounter = 1;
+        }
     }
-    
-
-    void CheckAndSave(std::string&, std::string, std::string, bool&)
-
- // default when no filterMode is given
-
-    void ReadFromFile(std::string, std::string, std::string, bool&)
+}
