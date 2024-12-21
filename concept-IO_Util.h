@@ -15,8 +15,10 @@ namespace CustomUtils
         class DefaultProcessor
         {
         public:
-            void CheckAndSave(std::string, std::string, bool&); // default to hashing logs when no filterMode is given
-            void ReadFile(std::string, std::string, bool&);
+            
+            void ReadLine(std::string, std::string, bool&);
+            void CheckLine(std::string, std::string, bool&);
+            void WriteLine(std::string, std::string, bool&);
         private:
             unsigned int saveCounter = 1;
         }
