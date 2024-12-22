@@ -75,10 +75,7 @@ void CustomUtils::IO::TextFileProcessor::CheckLine(std::string& lineToCheck, std
             WriteLine(lineToCheck, outputFileName, filterMode, needsHeader);
         }
     }
-    else
-    {
-        return;
-    }
+    return;
 }
 
 void CustomUtils::IO::TextFileProcessor::WriteLine(std::string lineToCheck, std::string outputFileName, std::string& filterMode, bool& needsHeader)
@@ -162,8 +159,5 @@ void CustomUtils::IO::TextFileProcessor::WriteLine(std::string lineToCheck, std:
             }
         }
     }
-    else
-    {
-        return;
-    }
+    return;
 }
