@@ -12,6 +12,7 @@ Messenger messenger;
 void CustomUtils::IO::TextFileProcessor::DelegateLine(std::string& logfilePath, std::string& outputFileName, bool& needsHeader)
 {
     ReadLine(logfilePath, outputFileName, "-h", needsHeader);
+    return;
 }
 
 void CustomUtils::IO::TextFileProcessor::ReadLine(std::string& logfilePath, std::string& outputFileName, std::string& filterMode, bool& needsHeader)
@@ -41,6 +42,7 @@ void CustomUtils::IO::TextFileProcessor::ReadLine(std::string& logfilePath, std:
         }
         inputFile.close();
     }
+    return;
 }
 
 void CustomUtils::IO::TextFileProcessor::CheckLine(std::string& lineToCheck, std::string& outputFileName, std::string& filterMode, bool& needsHeader)
