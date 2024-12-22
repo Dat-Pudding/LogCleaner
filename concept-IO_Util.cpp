@@ -11,7 +11,12 @@ namespace fs = std::filesystem;
 unsigned int saveCounter = 1;
 Messenger messenger;
 
-void CustomUtils::IO::Default::ReadLine(std::string& logfilePath, std::string& outputFileName, bool& isFirstLine)
+void CustomUtils::IO::TextFileProcessor::DelegateLine(std::string& logfilePath, std::string& outputFileName, bool& needsHeader)
+{
+    ReadLine(logfilePath, outputFileName, needsHeader);
+}
+
+void CustomUtils::IO::TextFileProcessor::ReadLine(std::string& logfilePath, std::string& outputFileName, std::string& filterMode, bool& isFirstLine)
 {
     fs::path p;
     p = logfilePath;
@@ -40,53 +45,7 @@ void CustomUtils::IO::Default::ReadLine(std::string& logfilePath, std::string& o
     }
 }
 
-void CustomUtils::IO::Default::CheckLine(std::string& lineToCheck, std::string& outputFileName, bool& needsHeader)
-{
-    std::regex pattern("(speed 10s/60s/15m)");
-    
-    if (std::regex_search(lineToCheck, pattern)
-    {
-        DefaultSaveLine(
-    }
-    else
-    {
-        messenger.ErrorMsg_NoMatchesFound();
-        return;
-    }
-} 
-void CustomUtils::IO::Default::WriteLine(std::string lineToCheck, std::regex& pattern, std::string outputFileName, bool& isFirstLine)
-{
-    std::ofstream outputFile(outputFileName, std::ios::out | std::ios::app);
-
-    Converters::HashLog::ToCSV dfltConverter;
-        
-    if (std::regex_search(lineToCheck, pattern))
-    {
-        if (!outputFile.is_open())
-        {
-            messenger.ErrorMsg_BadDefaultOutput();
-            outputFile.open(outputFileName);
-        }
-        else if (outputFile.is_open())
-        {
-            if (isFirstLine)
-            {
-                outputFile << "date,time,system,10s,60s,15m,max" << std::endl;
-                isFirstLine = false;
-            }
-            else if (!isFirstLine)
-            {
-                dfltConverter.Convert(lineToCheck);
-                std::string lineToOutput = dfltConverter.outputLine;
-                outputFile << lineToOutput << std::endl;
-                messenger.StatusMsg_Saving(saveCounter);
-                ++saveCounter;
-            }
-        }
-    }
-}
-
-void CheckAndSave(std::string& lineToCheck, std::string outputFileName, std::string filterMode, bool& isFirstLine)
+void CustomUtils::IO::TextFileProcessor::CheckLine(std::string& lineToCheck, std::string& outputFileName, bool& needsHeader)
 {
     if (filterMode == "-h")
     {
@@ -188,34 +147,92 @@ void CheckAndSave(std::string& lineToCheck, std::string outputFileName, std::str
     }
 }
 
-void ReadFromFile() // default when no filterMode is given
+void CustomUtils::IO::TextFileProcessor::WriteLine(std::string lineToCheck, std::regex& pattern, std::string outputFileName, bool& needsHeader)
 {
+    if (filterMode == "-h")
+    {
+        Converters::HashLog::ToCSV hashConverter;
+        std::ofstream outputFile(outputFileName, std::ios::out | std::ios::app)
         
-
-void ReadFromFile(std::string logfilePath, std::string outputFileName, std::string filterMode, bool& isFirstLine)
-{
-    fs::path p;
-    p = logfilePath;
-
-    messenger.StatusMsg_Searching(logfilePath);
-    std::ifstream inputFile(p);
-
-    if (!inputFile.is_open())
-    {
-        messenger.ErrorMsg_BadPath();
-        return;
-    }
-    else if (inputFile.is_open())
-    {
-        std::string line;
-        int lineCounter = 1;
-
-        while (std::getline(inputFile, line))
+        if (!outputFile.is_open())
         {
-            messenger.StatusMsg_Checking(lineCounter);
-            CheckAndSave(line, outputFileName, filterMode, isFirstLine);
-            ++lineCounter;
+            messenger.ErrorMsg_BadOutput(filterMode);
+            outputFile.open(outputFileName);
         }
-        inputFile.close();
+        else if (outputFile.is_open())
+        {
+            if (needsHeader)
+            {
+                outputFile << "date,time,system,10s,60s,15m,max" << std::endl;
+                needsHeader = false;
+            }
+            if (!needsHeader)
+            {
+                hashConverter.Convert(lineToCheck);
+                std::string lineToOutput = hashConverter.outputLine;
+                outputFile << lineToOutput << std::endl;
+                messenger.StatusMsg_Saving(saveCounter);
+                ++saveCounter;
+            }
+        }
+    }
+    else if (filterMode == "-j")
+    {
+        Converters::JobLog::ToCSV jobConverter;
+        std::ofstream outputFile(outputFileName, std::ios::out | std::ios::app);
+        std::regex stringPattern("(new job from)");
+    
+        if (!outputFile.is_open())
+        {
+            messenger.ErrorMsg_BadOutput(filterMode);
+            outputFile.open(outputFileName);
+        }
+        else if (outputFile.is_open())
+        {
+            if (needsHeader)
+            {
+                outputFile << "date,time,system,server,diff,algo,height" << std::endl;
+                needsHeader = false;
+            }
+            if (!needsHeader)
+            {
+                jobConverter.Convert(lineToCheck);
+                std::string lineToOutput = jobConverter.outputLine;
+                outputFile << lineToOutput << std::endl;
+                messenger.StatusMsg_Saving(saveCounter);
+                ++saveCounter;
+            }
+        }
+    }
+    else if (filterMode == "-s")
+    {
+        Converters::ShareLog::ToCSV shareConverter;
+        std::ofstream outputFile(outputFileName, std::ios::out | std::ios::app);
+
+        if (!outputFile.is_open())
+        {
+            messenger.ErrorMsg_BadOutput(filterMode);
+            outputFile.open(outputFileName);
+        }
+        else if (outputFile.is_open())
+        {
+            if (needsHeader)
+            {
+                outputFile << "date,time,system,status,numAccept,numReject,difficulty,latency" << std::endl;
+                needsHeader = false;
+            }
+            if (!needsHeader)
+            {
+                shareConverter.Convert(lineToCheck);
+                std::string lineToOutput = shareConverter.outputLine;
+                outputFile << lineToOutput << std::endl;
+                messenger.StatusMsg_Saving(saveCounter);
+                ++saveCounter;
+            }
+        }
+    }
+    else
+    {
+        return;
     }
 }
