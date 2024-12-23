@@ -1,8 +1,27 @@
 |    XMCleaner   |
 |:---------------|
 |Namespaces
-<details><summary>ns1</summary>
+<details><summary>Converters</summary>
 Classes
+ <details>
+ <summary>HashLog</summary>
+ Members
+  <details>
+  <summary>Public</summary>
+  Members 
+   <details>
+   <summary>func1</summary>
+   funcDescription
+   </details>
+  </details>
+  <details>
+  <summary>Private</summary>
+  Members
+   <details>
+   <summary>func1</summary>
+   </details>
+  </details>
+ </details>
  <details>
  <summary>class1</summary>
  Members
