@@ -11,7 +11,7 @@ By choosing one of the three available filter modes the lines that should be ext
 You can run it either manually via command line or append it to your `start.cmd` in the XMRig directory to have it run as soon as XMRig stops and therefore automatically stripping the most recent log-file.
 
 For it to have any data to work with it is **obligatory** to enable log-files in XMRig. 
-You can do this by just appending a `-l yourLogfileNameHere` to your usual `xmrig.exe -bla blabla blabla.bla -bla blabla` setup line.
+You can do this by just appending a `-l yourLogfileNameHere` to your usual `xmrig.exe <YOUR_MINING_CREDENTIALS>` setup line.
 
 ### General usage
 Independent of the platform, the overall usage syntax will always be as follows:
