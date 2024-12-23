@@ -23,11 +23,11 @@ Classes
   </details>
  </details>
  <details>
- <summary>class1</summary>
+ <summary>ShareLog</summary>
  Members
   <details>
   <summary>Public</summary>
-  Functions
+  Members
    <details>
    <summary>func1</summary>
    funcDescription
