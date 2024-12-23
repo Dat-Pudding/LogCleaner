@@ -5,7 +5,6 @@
 Classes
  <details>
  <summary>HashLog</summary>
- Members
   <details>
   <summary>Public</summary>
   Members 
