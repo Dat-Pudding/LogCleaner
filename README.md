@@ -95,9 +95,7 @@ This will result in our exemplary directory structure looking like this:
       ╚[<stuff>] ╚[stuff]     ╚[jobs.csv]
 ```
 
-We have added `del miner.log` as to mitigate already stripped lines from being read twice. Leave it out if you have other ways of dealing with duplicate lines in e.g. your data processing software.
-
-> **NOTE:** The output being proper comma-separated values to improve usability with data processing software is currently in the making. As of right now only the hashrate logs will be turned into proper `.csv` files and share logs at least have the column names for the intended CSV-formatted information.
+We have added `del miner.log` here as to mitigate already stripped lines from being read twice. Leave it out if you have other ways of dealing with duplicate lines in e.g. your data processing software.
 
 ### Compiling
 You can either build it yourself from the code in `/source/`.
