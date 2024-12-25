@@ -5,7 +5,7 @@ int Converters::HashLog::ToCSV::counter = 1;
 
 std::string Converters::HashLog::ToCSV::Convert(std::string& line)
 {
-    BracketToSpace(line);
+    SymbolToSpace(line);
     ++counter;
     return outputLine;
 }
@@ -119,7 +119,7 @@ std::string Converters::ShareLog::ToCSV::Convert(std::string& line)
 void Converters::ShareLog::ToCSV::SymbolToSpace(std::string& line)
 {
     std::string lineCache = line;
-    
+
     for (int i = 0; i < line.length(); ++i)
     {
         if (lineCache[i] == openBracket || lineCache[i] == closeBracket || lineCache[i] == openParens || lineCache[i] == closeParens || lineCache[i] == forwardSlash)
@@ -127,7 +127,7 @@ void Converters::ShareLog::ToCSV::SymbolToSpace(std::string& line)
             lineCache[i] = space;
         }
     }
-    
+
     line = lineCache;
     EqualiseSpaces(line);
 }
@@ -182,7 +182,6 @@ void Converters::ShareLog::ToCSV::Polisher::Polish(std::string& line)
 
     std::regex pattern1((phrase1));
     std::regex pattern2((phrase2));
-    std::regex pattern3((phrase3));
 
     auto lineCacheStart = lineCache.begin();
     lineCache.erase(lineCacheStart);
@@ -286,8 +285,9 @@ void Converters::JobLog::ToCSV::Polisher::Polish(std::string& line)
     std::regex pattern1((phrase1));
     std::regex pattern2((phrase2));
     std::regex pattern3((phrase3));
-    std::regex pattern3((phrase4));
-    std::regex pattern3((phrase5));
+    std::regex pattern4((phrase4));
+    std::regex pattern5((phrase5));
+    std::regex pattern6((phrase6));
 
     auto lineCacheStart = lineCache.begin();
     lineCache.erase(lineCacheStart);
@@ -297,12 +297,10 @@ void Converters::JobLog::ToCSV::Polisher::Polish(std::string& line)
     {
         RemovePhrase(lineCache, matchStore, pattern1);
     }
-
     if (std::regex_search(lineCache, matchStore, pattern2))
     {
         RemovePhrase(lineCache, matchStore, pattern2);
     }
-
     if (std::regex_search(lineCache, matchStore, pattern3))
     {
         RemovePhrase(lineCache, matchStore, pattern3);
@@ -315,6 +313,12 @@ void Converters::JobLog::ToCSV::Polisher::Polish(std::string& line)
     {
         RemovePhrase(lineCache, matchStore, pattern5);
     }
+    if (std::regex_search(lineCache, matchStore, pattern6))
+    {
+        RemovePhrase(lineCache, matchStore, pattern6);
+    }
+
+
     line = lineCache;
     line.shrink_to_fit();
     outputLine = line;

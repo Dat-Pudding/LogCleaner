@@ -15,7 +15,7 @@ private:
 	const static struct App
 	{
 		const char name[11] = "LogCleaner";
-		const char version[7] = "v0.1.5";
+		const char version[7] = "v1.0.0";
 		const char author[15] = "Joshua Ostwald";
 		const char license[9] = "LGPL-2.1";
 		const char githubLink[42] = "github.com/Dat-Pudding/LogCleaner";

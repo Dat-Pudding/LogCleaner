@@ -84,7 +84,7 @@ void Messenger::ErrorMsg_Generic()
 
 void Messenger::StatusMsg_Searching(std::string logfilePath)
 {
-	std::cout << "Trying to find log file " << logfilePath << "..."
+	std::cout << "Trying to find log file '" << logfilePath << "'..."
 			  << std::endl;
 }
 void Messenger::StatusMsg_Checking(unsigned int lineCounter)

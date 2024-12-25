@@ -15,7 +15,7 @@ namespace Converters
             static std::string outputLine;
             static int counter;
         private:
-            void BracketToSpace(std::string&);
+            void SymbolToSpace(std::string&);
             void EqualiseSpaces(std::string&);
             void SpaceToComma(std::string&);
 
@@ -49,7 +49,7 @@ namespace Converters
             static std::string outputLine;
             static int counter;
         private:
-            void BracketToSpace(std::string&);
+            void SymbolToSpace(std::string&);
             void EqualiseSpaces(std::string&);
             void SpaceToComma(std::string&);
 
@@ -104,11 +104,12 @@ namespace Converters
             private:
                 void RemovePhrase(std::string&, std::smatch&, std::regex&);
 
-                const std::string phrase1 = ",from";
-                const std::string phrase2 = ",algo";
+                const std::string phrase1 = ",new,job";
+                const std::string phrase2 = ",from";
                 const std::string phrase3 = ",diff";
-                const std::string phrase4 = ",height";
-                const std::string phrase5 = ",tx";
+                const std::string phrase4 = ",algo";
+                const std::string phrase5 = ",height";
+                const std::string phrase6 = ",tx";
             };
         };
     };

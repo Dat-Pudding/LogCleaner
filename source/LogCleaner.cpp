@@ -71,7 +71,7 @@ void CheckAndSave(std::string& lineToCheck, std::string outputFileName, std::str
 					hashConverter.Convert(lineToCheck);
 					std::string lineToOutput = hashConverter.outputLine;
 					outputFile << lineToOutput
-							   << std::endl;
+						<< std::endl;
 
 					messenger.StatusMsg_Saving(saveCounter);
 					++saveCounter;
