@@ -1,41 +1,28 @@
 |    XMCleaner   |
 |:---------------|
 |Namespaces
-<details><summary>CoreApp</summary>
-  <sub><i>Namespace</i></sub>
+<details><summary>XMCleaner</summary>
+  <sub><i>Namespace</i></sub><br></br>
   <details>
   <summary>Core</summary>
-  <sub><i>Class</sub></i>
+  <sub><i>Class</sub></i><br></br>
   Deals with the startup and inputs. Also chains together all the processing steps. 
     <details>
     <summary>Public Members</summary> 
       <details>
       <summary>Init()</summary>
-      <sub><i>public member function, <b>book</b></sub></i>
+      <sub><i>public member function, return <b>bool</b></sub></i><br></br>
       Is being called from main() upon starting app execution, initialises member classes and variables.
       </details>
       <details>
-      <summary></summary>
-      <sub><i>public member function</sub></i>
-      Is being called from main() upon starting app execution, initialises 
-      </details>
-      <details>
       <summary>Run()</summary>
-      <sub><i>public member function</i></sub>
-      Is being called from main() after 
-      </details>
-    </details>
-    <details>
-    <summary>Private Members</summary> 
-      <details>
-      <summary>func1</summary>
-      > *private member function*
-      funcDescription
+      <sub><i>public member function, return <b>int</b></sub></i><br></br>
+      Is being called from main() after `Core::Init()` returned `true`. Hands over the input arguments to the processing classes.
       </details>
       <details>
-      <summary>func2</summary>
-      > *private member function*
-      funcDescription
+      <summary>Stop()</summary>
+      <sub><i>public member function, <b>void</b></sub></i><br></br>
+      Is being called from main() after `Core::Run()` returns an `int` in accordance to either being successful or not. Cleans up after finishing everything and frees memory again.
       </details>
     </details>
   </details>
