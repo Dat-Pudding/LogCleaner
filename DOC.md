@@ -28,19 +28,10 @@
       </details>
     </details>
   </details>
-  <details>
-  <summary>Private</summary>
-  Members
-   <details>
-   <summary>func1</summary>
-   </details>
-  </details>
- </details>
  <details>
  <summary>ShareLog</summary>
- Members
   <details>
-  <summary>Public</summary>
+  <summary>Public Members</summary>
   Members
    <details>
    <summary>func1</summary>
