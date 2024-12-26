@@ -12,7 +12,7 @@
       </details>
       <details>
       <summary>Run()</summary>
-      <sub><i>public member function, return <b>int</b></sub></i><br></br>
+      <sub><i>public member function, return <b>bool</b></sub></i><br></br>
       Is being called from main() after `Core::Init()` returned `true`. Hands over the input arguments to the processing classes.
       </details>
       <details>
@@ -33,7 +33,7 @@
         <details>
         <summary>Convert()</summary>
         <sub><i>public member function, <b>void</b></sub></i><br></br>
-        Takes the input `std::string` and feeds it through the processing chain of functions. After operation this parent class's member variable contains the output data.
+        Takes the input `std::string` and feeds it through the processing chain of functions. After operation this parent class's member `std::string outputLine` contains the output data.
         </details>
       </details>
     <details>
@@ -48,14 +48,15 @@
       </details>
     </details>
   </details>
- <details>
- <summary><h4>ShareLog</h4></summary>
   <details>
-  <summary><h5>Public Members</h5></summary>
-   <details>
-   <summary>func1</summary>
-   funcDescription
-   </details>
+  <summary><h4>ShareLog</h4></summary>
+  <sub><i>Class</sub></i><br></br>
+    <details>
+    <summary><h5>Public Members</h5></summary>
+      <details>
+      <summary>func1</summary>
+      funcDescription
+      </details>
+    </details>
   </details>
- </details>
-</details>|
+</details>
