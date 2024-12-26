@@ -35,6 +35,7 @@
       <summary>Public Members</summary> 
         <details>
         <summary>Convert()</summary>
+        <sub><i>public member function, <b>void</b></sub></i><br></br>
         Takes the input `std::string` and feeds it through the processing chain of functions. After operation this parent class's member variable contains the output data.
         </details>
       </details>
