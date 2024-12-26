@@ -2,10 +2,10 @@
 |:---------------|
 |Namespaces
 <details><summary>CoreApp</summary>
-> *Namespace*
+  <sub><i>Namespace</i></sub>
   <details>
   <summary>Core</summary>
-> *Class*
+  <sub><i>Class</sub></i>
     <details>
     <summary>Public Members</summary> 
       <details>
