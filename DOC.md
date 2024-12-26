@@ -10,11 +10,9 @@
     <summary>Public Members</summary> 
       <details>
       <summary>func1</summary>
-
       > *public member function*
       funcDescription
       </details>
-
       <details>
       <summary>func2</summary>
       > *public member function*
