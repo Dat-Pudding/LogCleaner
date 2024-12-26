@@ -5,12 +5,12 @@
 > *Namespace*
   <details>
   <summary>Core</summary>
-  > *Class*
+> *Class*
     <details>
     <summary>Public Members</summary> 
       <details>
       <summary>func1</summary>
-      > *public member function*
+> *public member function*
       funcDescription
       </details>
       <details>
