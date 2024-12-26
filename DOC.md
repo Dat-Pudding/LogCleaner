@@ -5,7 +5,7 @@
   <summary><h3>Core</h3></summary>
   <sub><i>Class</sub></i><br></br>
   Deals with the startup and inputs. Also chains together all the processing steps. 
-    <details><summary>Public Members</summary><details>
+    <details><summary><h3>Public Members</h3></summary><details>
       <summary><h4>Init()</h4></summary>
       <sub><i>public member function, return <b>bool</b></sub></i><br></br>
       Is being called from main() upon starting app execution, initialises member classes and variables.
