@@ -25,20 +25,19 @@
       </details>
     </details>
   </details>
-<details><summary>Converters</summary>
   <details>
-  <summary>HashLog</summary>
+  <summary>Converters</summary>
+  <sub><i>Class</sub></i><br></br>
     <details>
-    <summary>Public Members</summary> 
+    <summary>HashLog</summary>
+    <sub><i>Class</sub></i><br></br>
       <details>
-      <summary>func1</summary>
-      funcDescription
+      <summary>Public Members</summary> 
+        <details>
+        <summary>Convert()</summary>
+        Takes the input `std::string` and feeds it through the processing chain of functions. After operation this parent class's member variable contains the output data.
+        </details>
       </details>
-      <details>
-      <summary>func2</summary>
-      funcDescription
-      </details>
-    </details>
     <details>
     <summary>Private Members</summary> 
       <details>
