@@ -8,9 +8,7 @@
   <summary>Core</summary>
   <sub><i>Class</sub></i><br></br>
   Deals with the startup and inputs. Also chains together all the processing steps. 
-    <details>
-    <summary>Public Members</summary> 
-      <details>
+    <details><summary>Public Members</summary><details>
       <summary>Init()</summary>
       <sub><i>public member function, return <b>bool</b></sub></i><br></br>
       Is being called from main() upon starting app execution, initialises member classes and variables.
@@ -27,18 +25,6 @@
       </details>
     </details>
   </details>
- <details>
- <summary>ShareLog</summary>
-  <details>
-  <summary>Public Members</summary>
-  Members
-   <details>
-   <summary>func1</summary>
-   funcDescription
-   </details>
-  </details>
- </details>
-
 <details><summary>Converters</summary>
   <details>
   <summary>HashLog</summary>
