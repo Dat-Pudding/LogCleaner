@@ -2,16 +2,20 @@
 |:---------------|
 |Namespaces
 <details><summary>Converters</summary>
-Classes
- <details>
- <summary>HashLog</summary>
+  Classes
   <details>
-  <summary>Public</summary>
-  Members 
-   <details>
-   <summary>func1</summary>
-   funcDescription
-   </details>
+  <summary>HashLog</summary>
+    <details>
+    <summary>Public</summary>
+    Members 
+      <details>
+      <summary>func1</summary>
+      funcDescription
+      </details>
+      <details>
+      <summary>func2</summary>
+      funcDescription
+    </details>
   </details>
   <details>
   <summary>Private</summary>
