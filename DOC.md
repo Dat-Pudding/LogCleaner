@@ -6,17 +6,23 @@
   <details>
   <summary>Core</summary>
   <sub><i>Class</sub></i>
+  Deals with the startup and inputs. Also chains together all the processing steps. 
     <details>
     <summary>Public Members</summary> 
       <details>
-      <summary>func1</summary>
-> *public member function*
-      funcDescription
+      <summary>Init()</summary>
+      <sub><i>public member function, <b>book</b></sub></i>
+      Is being called from main() upon starting app execution, initialises member classes and variables.
       </details>
       <details>
-      <summary>func2</summary>
+      <summary></summary>
+      <sub><i>public member function</sub></i>
+      Is being called from main() upon starting app execution, initialises 
+      </details>
+      <details>
+      <summary>Run()</summary>
       <sub><i>public member function</i></sub>
-      funcDescription
+      Is being called from main() after 
       </details>
     </details>
     <details>
