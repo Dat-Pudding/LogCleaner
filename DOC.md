@@ -6,8 +6,7 @@
   <details>
   <summary>HashLog</summary>
     <details>
-    <summary>Public</summary>
-    Members 
+    <summary>Public Members</summary> 
       <details>
       <summary>func1</summary>
       funcDescription
@@ -15,6 +14,18 @@
       <details>
       <summary>func2</summary>
       funcDescription
+      </details>
+    </details>
+    <details>
+    <summary>Private Members</summary> 
+      <details>
+      <summary>func1</summary>
+      funcDescription
+      </details>
+      <details>
+      <summary>func2</summary>
+      funcDescription
+      </details>
     </details>
   </details>
   <details>
