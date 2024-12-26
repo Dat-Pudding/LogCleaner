@@ -5,7 +5,7 @@
   <summary><h3>Core</h3></summary>
   <sub><i>Class</sub></i><br></br>
   Deals with the startup and inputs. Also chains together all the processing steps. 
-    <details><summary><h4>Public Members</h4></summary><details>
+    <details><summary><h5>Public Members</h5></summary><details>
       <summary>Init()</summary>
       <sub><i>public member function, return <b>bool</b></sub></i><br></br>
       Is being called from main() upon starting app execution, initialises member classes and variables.
@@ -26,10 +26,10 @@
   <summary><h3>Converters</h3></summary>
   <sub><i>Class</sub></i><br></br>
     <details>
-    <summary>HashLog</summary>
+    <summary><h4>HashLog</h4></summary>
     <sub><i>Class</sub></i><br></br>
       <details>
-      <summary>Public Members</summary> 
+      <summary><h5>Public Members</h5></summary> 
         <details>
         <summary>Convert()</summary>
         <sub><i>public member function, <b>void</b></sub></i><br></br>
@@ -37,7 +37,7 @@
         </details>
       </details>
     <details>
-    <summary>Private Members</summary> 
+    <summary><h4>Private Members</h4></summary> 
       <details>
       <summary>func1</summary>
       funcDescription
