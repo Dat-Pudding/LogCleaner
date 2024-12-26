@@ -1,8 +1,9 @@
 |    XMCleaner   |
 |:---------------|
 |Namespaces
-<details><summary>XMCleaner</summary>
-  <sub><i>Namespace</i></sub><br></br>
+<details>
+<summary>XMCleaner</summary>
+<sub><i>Namespace</i></sub><br></br>
   <details>
   <summary>Core</summary>
   <sub><i>Class</sub></i><br></br>
@@ -37,7 +38,6 @@
    </details>
   </details>
  </details>
-</details>
 
 <details><summary>Converters</summary>
   <details>
