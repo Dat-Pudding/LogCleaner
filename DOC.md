@@ -15,7 +15,7 @@
       </details>
       <details>
       <summary>func2</summary>
-      <sub> *public member function*</sub>
+      <sub><i>public member function</i></sub>
       funcDescription
       </details>
     </details>
