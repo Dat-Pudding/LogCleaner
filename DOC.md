@@ -23,7 +23,7 @@
     </details>
   </details>
   <details>
-  <summary>Converters</summary>
+  <summary><h3>Converters</h3></summary>
   <sub><i>Class</sub></i><br></br>
     <details>
     <summary>HashLog</summary>
