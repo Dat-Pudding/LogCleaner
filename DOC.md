@@ -37,7 +37,7 @@
         </details>
       </details>
     <details>
-    <summary><h4>Private Members</h4></summary> 
+    <summary><h5>Private Members</h5></summary> 
       <details>
       <summary>func1</summary>
       funcDescription
@@ -49,10 +49,9 @@
     </details>
   </details>
  <details>
- <summary>ShareLog</summary>
+ <summary><h4>ShareLog</h4></summary>
   <details>
-  <summary>Public Members</summary>
-  Members
+  <summary><h5>Public Members</h5></summary>
    <details>
    <summary>func1</summary>
    funcDescription
