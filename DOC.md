@@ -18,7 +18,7 @@
       <details>
       <summary>Stop()</summary>
       <sub><i>public member function, <b>void</b></sub></i><br></br>
-      Is being called from main() after `Core::Run()` returns an `int` in accordance to either being successful or not. Cleans up after finishing everything and frees memory again.
+      Is being called from main() after `Core::Run()` returns an `bool` in accordance to either being successful or not. Cleans up after finishing everything and frees memory again.
       </details>
     </details>
   </details>
