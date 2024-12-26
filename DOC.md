@@ -2,7 +2,7 @@
 |:---------------|
 |Namespaces
 <details>
-<summary>XMCleaner</summary>
+<summary><h2>XMCleaner</h2></summary>
 <sub><i>Namespace</i></sub><br></br>
   <details>
   <summary>Core</summary>
