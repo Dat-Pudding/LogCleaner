@@ -1,5 +1,6 @@
 #include "Core.h"
 
+
 bool XMCleaner::Core::Init()
 {
     return true;
