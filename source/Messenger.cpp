@@ -83,8 +83,7 @@ void XMCleaner::Messenger::ErrorMsg_Generic()
 
 void XMCleaner::Messenger::StatusMsg_Searching(std::string logfilePath)
 {
-	std::cout << "Trying to find log file '" << logfilePath << "'..."
-			  << std::endl;
+	std::cout << "Trying to find log file '" << logfilePath << "'..." << std::endl;
 }
 void XMCleaner::Messenger::StatusMsg_Checking(unsigned int lineCounter)
 {
@@ -92,8 +91,7 @@ void XMCleaner::Messenger::StatusMsg_Checking(unsigned int lineCounter)
 }
 void XMCleaner::Messenger::StatusMsg_Saving(unsigned int saveCounter)
 {
-	std::cout << "[#" << saveCounter << "] saved!"
-			  << std::endl;
+	std::cout << "[#" << saveCounter << "] saved!" << std::endl;
 }
 void XMCleaner::Messenger::StatusMsg_Finished()
 {
