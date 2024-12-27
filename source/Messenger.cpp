@@ -4,36 +4,36 @@ void XMCleaner::Messenger::ErrorMsg_TooFewArgs()
 {
 	system("cls");
 	std::cout << "\n"
-			  << "ERROR: Too few arguments given! \n"
-			  << "<======================================== INFO ========================================>\n"
-			  << " | Please use this format: LogCleaner.exe <logfilePath> <outputFileName> <filterMode> |\n"
-			  << "<======================================================================================>\n\n"
-			  << std::endl;
+	<< "ERROR: Too few arguments given! \n"
+	<< "<======================================== INFO ========================================>\n"
+	<< " | Please use this format: LogCleaner.exe <logfilePath> <outputFileName> <filterMode> |\n"
+	<< "<======================================================================================>\n\n"
+	<< std::endl;
 	system("pause");
 }
 void XMCleaner::Messenger::ErrorMsg_IdenticalIO()
 {
 	system("cls");
 	std::cout << "\n"
-			  << "ERROR: Output file can't be identical to the input file! \n"
-			  << "<======================================== INFO ========================================>\n"
-			  << " | Please use this format: LogCleaner.exe <logfilePath> <outputFileName> <filterMode> |\n"
-			  << "<======================================================================================>\n\n"
-			  << std::endl;
+	<< "ERROR: Output file can't be identical to the input file! \n"
+	<< "<======================================== INFO ========================================>\n"
+	<< " | Please use this format: LogCleaner.exe <logfilePath> <outputFileName> <filterMode> |\n"
+	<< "<======================================================================================>\n\n"
+	<< std::endl;
 	system("pause");
 }
 void XMCleaner::Messenger::ErrorMsg_BadMode(std::string filterMode)
 {
 	system("cls");
 	std::cout << "\n"
-			  << "ERROR: '" << filterMode << "' is not a valid filterMode\n"
-			  << "<======================================== INFO ========================================>\n"
-			  << " | Available filterMode variants are:                                                 |\n"
-			  << " | -h          Extracts hashrate information in the log file                          |\n"
+	<< "ERROR: '" << filterMode << "' is not a valid filterMode\n"
+	<< "<======================================== INFO ========================================>\n"
+	<< " | Available filterMode variants are:                                                 |\n"
+	<< " | -h          Extracts hashrate information in the log file                          |\n"
 			  << " | -j          Extracts 'new job' information in the log file                         |\n"
-			  << " | -s          Extracts 'accepted/rejected' share information in the log file         |\n"
-			  << "<======================================================================================>\n\n"
-			  << std::endl;
+	<< " | -s          Extracts 'accepted/rejected' share information in the log file         |\n"
+	<< "<======================================================================================>\n\n"
+	<< std::endl;
 	system("pause");
 }
 void XMCleaner::Messenger::ErrorMsg_BadPath()
