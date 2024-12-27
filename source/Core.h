@@ -10,7 +10,17 @@ public:
     }
     class AppInfo
     {
-    
+    public:
+        static void LoadAndPrint();
+    private:
+        const static struct App
+        {
+            const char name[11];
+            const char version[7];
+            const char author[15];
+            const char license[9];
+            const char githubLink[42];
+        };
     }
     class IO_Utility
     {
