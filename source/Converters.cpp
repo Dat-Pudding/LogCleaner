@@ -1,4 +1,4 @@
-#include "Converters.h"
+#include "Core.h"
 
 std::string Converters::HashLog::ToCSV::outputLine = "";
 int Converters::HashLog::ToCSV::counter = 1;
