@@ -7,13 +7,13 @@
 namespace fs = std::filesystem;
 Messenger messenger;
 
-void CustomUtils::IO::TextFileProcessor::DelegateLine(std::string& logfilePath, std::string& outputFileName, bool& needsHeader)
+void XMCleaner::IO::TextFileProcessor::DelegateLine(std::string& logfilePath, std::string& outputFileName, bool& needsHeader)
 {
     ReadLine(logfilePath, outputFileName, "-h", needsHeader);
     return;
 }
 
-void CustomUtils::IO::TextFileProcessor::ReadLine(std::string& logfilePath, std::string& outputFileName, std::string& filterMode, bool& needsHeader)
+void XMCleaner::IO::TextFileProcessor::ReadLine(std::string& logfilePath, std::string& outputFileName, std::string& filterMode, bool& needsHeader)
 {
     fs::path p;
     p = logfilePath;
@@ -43,7 +43,7 @@ void CustomUtils::IO::TextFileProcessor::ReadLine(std::string& logfilePath, std:
     return;
 }
 
-void CustomUtils::IO::TextFileProcessor::CheckLine(std::string& lineToCheck, std::string& outputFileName, std::string& filterMode, bool& needsHeader)
+void XMCleaner::IO::TextFileProcessor::CheckLine(std::string& lineToCheck, std::string& outputFileName, std::string& filterMode, bool& needsHeader)
 {
     if (filterMode == "-h")
     {
@@ -76,7 +76,7 @@ void CustomUtils::IO::TextFileProcessor::CheckLine(std::string& lineToCheck, std
     return;
 }
 
-void CustomUtils::IO::TextFileProcessor::WriteLine(std::string lineToCheck, std::string outputFileName, std::string& filterMode, bool& needsHeader)
+void XMCleaner::IO::TextFileProcessor::WriteLine(std::string lineToCheck, std::string outputFileName, std::string& filterMode, bool& needsHeader)
 {
     if (filterMode == "-h")
     {
