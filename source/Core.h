@@ -35,18 +35,29 @@ public:
             class ToCSV 
             {
             public:
-                Convert();
+                std::string Convert(std::string&);
+                static std::string outputLine;
+                static int counter;
             private:
-                SymbolToSpace();
-                EqualiseSpaces();
-                SpaceToComma();
-        
+                void SymbolToSpace(std::string&);
+                void EqualiseSpaces(std::string&);
+                void SpaceToComma(std::string&);
+
+                const char space = ' ';
+                const char openBracket = '[';
+                const char closeBracket = ']';
+                const char comma = ',';
+                
                 class Polisher
                 {
                 public:
-                    Polish();
+                    void Polish(std::string&);
                 private:
-                    const std::string phrase1
+                    void RemovePhrase(std::string&, std::smatch&, std::regex&);
+
+                    const std::string phrase1 = ",speed,10s/60s/15m";
+                    const std::string phrase2 = ",H/s,max";
+                    const std::string phrase3 = ",H/s";
                 };
             }!
         };
