@@ -42,7 +42,7 @@ void XMCleaner::Messenger::ErrorMsg_BadPath()
 			  << std::endl;
 	system("pause");
 }
-void Messenger::ErrorMsg_BadOutput(std::string filterMode)
+void XMCleaner::Messenger::ErrorMsg_BadOutput(std::string filterMode)
 {
 	if (filterMode == "-h")
 	{
@@ -69,7 +69,7 @@ void XMCleaner::Messenger::ErrorMsg_BadDefaultOutput()
 			  << std::endl;
 	system("pause");
 }
-void Messenger::ErrorMsg_Generic()
+void XMCleaner::Messenger::ErrorMsg_Generic()
 {
 	system("cls");
 	std::cout << "\n"
@@ -97,7 +97,5 @@ void XMCleaner::Messenger::StatusMsg_Saving(unsigned int saveCounter)
 }
 void XMCleaner::Messenger::StatusMsg_Finished()
 {
-	std::cout << "\n"
-			  << "<================== DONE ==================>"
-			  << std::endl;
+	std::cout << "\n" << "<================== DONE ==================>" << std::endl;
 }
