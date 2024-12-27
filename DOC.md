@@ -7,12 +7,12 @@
   Deals with the startup and inputs. Also chains together all the processing steps. 
     <details><summary><h5>Public Members</h5></summary><details>
       <summary>Init()</summary>
-      <sub><i>public member function, return <b>bool</b><br>Declaration: `XMCleaner::Core.Init()`</sub></i><br>
+      <sub><i>public member function, return <b>bool</b><br>Declaration: `public bool XMCleaner::Core.Init()`</sub></i><br>
       Is being called from main() upon starting app execution, initialises member classes and variables.
       </details>
       <details>
-      <summary>Run()</summary>
-      <sub><i>public member function, return <b>bool</b></sub></i><br>
+      <summary>Run(int argc, char* argv[])</summary>
+      <sub><i>public member function, return <b>bool</b><br></sub></i><br>
       Is being called from main() after `Core::Init()` returned `true`. Hands over the input arguments to the processing classes.
       </details>
       <details>
