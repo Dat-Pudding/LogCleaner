@@ -88,10 +88,7 @@ void XMCleaner::Messenger::StatusMsg_Searching(std::string logfilePath)
 }
 void XMCleaner::Messenger::StatusMsg_Checking(unsigned int lineCounter)
 {
-	std::cout << "[#"
-			  << lineCounter
-			  << "] Checking for specified stats..."
-			  << std::endl;
+	std::cout << "[#" << lineCounter << "] Checking for specified stats..." << std::endl;
 }
 void XMCleaner::Messenger::StatusMsg_Saving(unsigned int saveCounter)
 {
