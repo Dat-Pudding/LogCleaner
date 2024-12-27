@@ -1,5 +1,5 @@
-[![Github All Releases](https://img.shields.io/github/downloads/xmrig/xmrig/total.svg)](https://github.com/xmrig/xmrig/releases)
-[![GitHub release](https://img.shields.io/github/release/xmrig/xmrig/all.svg)](https://github.com/xmrig/xmrig/releases)
+[![Github All Releases](https://img.shields.io/github/downloads/Dat-Pudding/LogCleaner/total.svg)](https://github.com/Dat-Pudding/LogCleaner/releases)
+[![GitHub release](https://img.shields.io/github/release/Dat-Pudding/LogCleaner/all.svg)](https://github.com/xmrig/xmrig/releases)
 [![GitHub Release Date](https://img.shields.io/github/release-date/Dat-Pudding/LogCleaner.svg)](https://github.com/Dat-Pudding/LogCleaner/releases)
 [![GitHub license](https://img.shields.io/github/license/Dat-Pudding/LogCleaner.svg)](https://github.com/Dat-Pudding/LogCleaner/blob/master/LICENSE)
 [![GitHub stars](https://img.shields.io/github/stars/Dat-Pudding/LogCleaner.svg)](https://github.com/Dat-Pudding/LogCleaner/stargazers)
