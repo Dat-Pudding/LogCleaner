@@ -7,7 +7,7 @@
   Deals with the startup and inputs. Also chains together all the processing steps. 
     <details><summary><h5>Public Members</h5></summary><details>
       <summary>Init()</summary>
-      <sub><i>public member function, return <b>bool</b></sub></i><br></br>
+      <sub><i>public member function, return <b>bool</b><br></br>Declaration: `XMCleaner::Core.Init()`</sub></i><br></br>
       Is being called from main() upon starting app execution, initialises member classes and variables.
       </details>
       <details>
