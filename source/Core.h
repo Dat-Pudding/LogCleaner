@@ -8,6 +8,10 @@ public:
         bool Run(int, char*);
         void Stop();
     }
+    class AppInfo
+    {
+    
+    }
     class IO_Utility
     {
     
