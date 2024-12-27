@@ -1,6 +1,6 @@
 #include "Core.h"
 
-void Messenger::ErrorMsg_TooFewArgs()
+void XMCleaner::Messenger::ErrorMsg_TooFewArgs()
 {
 	system("cls");
 	std::cout << "\n"
@@ -11,7 +11,7 @@ void Messenger::ErrorMsg_TooFewArgs()
 			  << std::endl;
 	system("pause");
 }
-void Messenger::ErrorMsg_IdenticalIO()
+void XMCleaner::Messenger::ErrorMsg_IdenticalIO()
 {
 	system("cls");
 	std::cout << "\n"
@@ -22,7 +22,7 @@ void Messenger::ErrorMsg_IdenticalIO()
 			  << std::endl;
 	system("pause");
 }
-void Messenger::ErrorMsg_BadMode(std::string filterMode)
+void XMCleaner::Messenger::ErrorMsg_BadMode(std::string filterMode)
 {
 	system("cls");
 	std::cout << "\n"
@@ -36,7 +36,7 @@ void Messenger::ErrorMsg_BadMode(std::string filterMode)
 			  << std::endl;
 	system("pause");
 }
-void Messenger::ErrorMsg_BadPath()
+void XMCleaner::Messenger::ErrorMsg_BadPath()
 {
 	std::cout << "Couldn't open file at given path!"
 			  << std::endl;
@@ -63,7 +63,7 @@ void Messenger::ErrorMsg_BadOutput(std::string filterMode)
 		system("pause");
 	}
 }
-void Messenger::ErrorMsg_BadDefaultOutput()
+void XMCleaner::Messenger::ErrorMsg_BadDefaultOutput()
 {
 	std::cout << "Couldn't find hash log, trying to generate a new one..."
 			  << std::endl;
@@ -81,24 +81,24 @@ void Messenger::ErrorMsg_Generic()
 	system("pause");
 }
 
-void Messenger::StatusMsg_Searching(std::string logfilePath)
+void XMCleaner::Messenger::StatusMsg_Searching(std::string logfilePath)
 {
 	std::cout << "Trying to find log file '" << logfilePath << "'..."
 			  << std::endl;
 }
-void Messenger::StatusMsg_Checking(unsigned int lineCounter)
+void XMCleaner::Messenger::StatusMsg_Checking(unsigned int lineCounter)
 {
 	std::cout << "[#"
 			  << lineCounter
 			  << "] Checking for specified stats..."
 			  << std::endl;
 }
-void Messenger::StatusMsg_Saving(unsigned int saveCounter)
+void XMCleaner::Messenger::StatusMsg_Saving(unsigned int saveCounter)
 {
 	std::cout << "[#" << saveCounter << "] saved!"
 			  << std::endl;
 }
-void Messenger::StatusMsg_Finished()
+void XMCleaner::Messenger::StatusMsg_Finished()
 {
 	std::cout << "\n"
 			  << "<================== DONE ==================>"
