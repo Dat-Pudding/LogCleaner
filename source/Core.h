@@ -8,43 +8,43 @@
 
 namespace XMCleaner
 {
-public:
     class Core
     {
     public:
         bool Init();
-        bool Run(int, char*);
+        bool Run(int argc, char* argv[]);
         void Stop();
-    }
+    };
     class AppInfo
     {
     public:
         static void LoadAndPrint();
-    private:
-        const static struct App
+        struct App
         {
-            const char name[11];
-            const char version[7];
-            const char author[15];
-            const char license[9];
-            const char githubLink[42];
+            const std::string name = "XMCleaner";
+            const std::string version = "v1.5.0";
+            const std::string author = "Joshua Ostwald";
+            const std::string license = "LGPL-2.1";
+            const std::string githubLink = "github.com/Dat-Pudding/LogCleaner";
         };
-    }
+    };
+
     class FileIO
     {
+    public:
         class TextFileProcessor
         {
         public:
-            void DelegateLine(std::string&, std::string&, bool&); // Defaults to filterMode '-h', then follows normal procedure
+            void DelegateLine(std::string&, std::string&, bool&); // Defaults to filterMode '-h', then follows normal procedure via ReadLine()
             void ReadLine(std::string&, std::string&, std::string&, bool&);
             void CheckLine(std::string&, std::string&, std::string&, bool&);
             void WriteLine(std::string&, std::string&, std::string&, bool&);
 
         public:
-            const Messenger messenger;
-            static unsigned int saveCounter = 1;
-        }
-    }
+            int saveCounter;
+        };
+    };
+
     class Messenger
     {
     public:
@@ -60,12 +60,15 @@ public:
         void StatusMsg_Checking(unsigned int);
         void StatusMsg_Saving(unsigned int);
         void StatusMsg_Finished();
-    }
+    };
+
     class Converter
     {
+    public:
         class HashLog
         {
-            class ToCSV 
+        public:
+            class ToCSV
             {
             public:
                 std::string Convert(std::string&);
@@ -80,7 +83,7 @@ public:
                 const char openBracket = '[';
                 const char closeBracket = ']';
                 const char comma = ',';
-                
+
                 class Polisher
                 {
                 public:
@@ -115,7 +118,7 @@ public:
                 const char closeParens = ')';
                 const char forwardSlash = '/';
                 const char comma = ',';
- 
+
                 class Polisher
                 {
                 public:
@@ -141,7 +144,7 @@ public:
                 void BracketToSpace(std::string&);
                 void EqualiseSpaces(std::string&);
                 void SpaceToComma(std::string&);
-  
+
                 const char space = ' ';
                 const char openBracket = '[';
                 const char closeBracket = ']';
