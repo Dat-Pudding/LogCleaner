@@ -6,12 +6,12 @@
 [![GitHub forks](https://img.shields.io/github/forks/Dat-Pudding/LogCleaner.svg)](https://github.com/Dat-Pudding/LogCleaner/network)
 
 # LogCleaner
-Purpose-built to extract information about hashrates, accepted/rejected shares and newly received jobs out of your standard XMRig log-file and saving it to respectively dedicated files.
+Extracts information about hashrates, accepted/rejected shares and newly received jobs from your standard XMRig log-file and saves it to respectively dedicated files in CSV format.
 
 ## What can it do?
 > **NOTE:** As of right now it's pretty bare-bones, this will change in the near future.
 
-When run in default mode it will take the specified logfile and extract all lines that contain the hashrate reports with their timestamps.
+When run in default mode (without a given filter mode) it will take the specified logfile and extract all lines that contain the hashrate reports with their timestamps.
 By choosing one of the three available filter modes the lines that should be extracted can be set.
 
 ## How to use
@@ -29,7 +29,7 @@ Independent of the platform, the overall usage syntax will always be as follows:
 
 And the individual parameters consist of the following:
 | Command/Parameter  | Description |
-| ------------- | ------------- |
+| :---------------- | :---------------- |
 | `<executable>`  | Unless renamed and depending on the platform either `LogCleaner.exe` or `LogCleaner`  |
 | `<logFilePath>`  | The file path AND file name of XMRig's log-file.<li>Can be absolute or relative to the executable</li><li>Has to be explicit with the file extension if the target file has one</li><li>Should be the same as the one specified in XMRig settings</li><br>Example: `./logs/miner.log`  |
 | `<extractFilePath>`  | The file path AND name of the desired output file.<li>Can be absolute or relative to the executable</li><li>Has to be explicit with the file extension</li><li>If a subdirectory is desired as target, this subdirectory has to already exist</li><br>Example: `./cleaned/hashRates.csv`  |
@@ -107,4 +107,7 @@ We have added `del miner.log` here as to mitigate already stripped lines from be
 ### Compiling
 You can either build it yourself from the code in `/source/`.
 
-When compiling yourself make sure to use at least `C++17` or newer, since the code utilises the non-experimental `std::filestream` for reading/writing. The code itself was written in a `C++22` environment.
+When compiling yourself make sure to use at least `C++17` or newer, since the code utilises the non-experimental `std::filestream` for interacting with the input and output files.
+The code itself was written in a `C++22` environment.
+
+A CMake/Premake will be available soon, I got to get a hang of it first.
