@@ -5,7 +5,7 @@
 [![GitHub stars](https://img.shields.io/github/stars/Dat-Pudding/LogCleaner.svg)](https://github.com/Dat-Pudding/LogCleaner/stargazers)
 [![GitHub forks](https://img.shields.io/github/forks/Dat-Pudding/LogCleaner.svg)](https://github.com/Dat-Pudding/LogCleaner/network)
 
-# LogCleaner
+# XMCleaner
 Extracts information about hashrates, accepted/rejected shares and newly received jobs from your standard XMRig log-file and saves it to respectively dedicated files in CSV format.
 
 ## What can it do?
@@ -30,7 +30,7 @@ Independent of the platform, the overall usage syntax will always be as follows:
 And the individual parameters consist of the following:
 | Command/Parameter  | Description |
 | :---------------- | :---------------- |
-| `<executable>`  | Unless renamed and depending on the platform either `LogCleaner.exe` or `LogCleaner`  |
+| `<executable>`  | Unless renamed and depending on the platform either `XMCleaner.exe` or `XMCleaner`  |
 | `<logFilePath>`  | The file path AND file name of XMRig's log-file.<li>Can be absolute or relative to the executable</li><li>Has to be explicit with the file extension if the target file has one</li><li>Should be the same as the one specified in XMRig settings</li><br>Example: `./logs/miner.log`  |
 | `<extractFilePath>`  | The file path AND name of the desired output file.<li>Can be absolute or relative to the executable</li><li>Has to be explicit with the file extension</li><li>If a subdirectory is desired as target, this subdirectory has to already exist</li><br>Example: `./cleaned/hashRates.csv`  |
 | `<filterMode>`  | Defines the type of extracted information<li>`-h` extracts hashrate information</li><li>`-j` extracts new-job-reception information</li><li>`-s` extracts accepted/rejected share information</li>  |
@@ -38,11 +38,11 @@ And the individual parameters consist of the following:
 #### Syntax examples
 On Windows:
 ```.cmd
-LogCleaner.exe miner.log ./cleaned/hashes.csv -h
+XMCleaner.exe miner.log ./cleaned/hashes.csv -h
 ```
 On Linux:
 ```.bash
-LogCleaner miner.log ./cleaned/hashes.csv -h
+XMCleaner miner.log ./cleaned/hashes.csv -h
 ```
 
 ### Examples
@@ -51,7 +51,7 @@ Given a directory structure like this:
 ```
 [C:\]═╦[\xmrig\]═╦[\cleaned\]
       ╠[<other>] ╠[SHA256sums]
-      ╚[<stuff>] ╠[LogCleaner.exe]
+      ╚[<stuff>] ╠[XMCleaner.exe]
                  ╠[miner.log]
                  ╠[WinRing64]
                  ╠[start.cmd]
@@ -59,7 +59,7 @@ Given a directory structure like this:
 ```
 We can either directly run it from the command line with:
 ```.cmd
-C:\xmrig\LogCleaner.exe miner.log .\cleaned\hashes.csv -h
+C:\xmrig\XMCleaner.exe miner.log .\cleaned\hashes.csv -h
 ```
 After which we'll find `hashes.csv` within the `\cleaned\` directory, containing our extracted information and making our structure look like this:
 ```
@@ -80,7 +80,7 @@ To this:
 @echo off
 cd /d "%~dp0"
 xmrig.exe <YOUR_MINING_CREDENTIALS> -l miner.log
-LogCleaner.exe miner.log .\cleaned\hashes.csv -h
+XMCleaner.exe miner.log .\cleaned\hashes.csv -h
 del miner.log
 pause
 ```
@@ -89,9 +89,9 @@ Since multi-filtering (more than one filterMode at a time) isn't yet implemented
 @echo off
 cd /d "%~dp0"
 xmrig.exe <YOUR_MINING_CREDENTIALS> -l miner.log
-LogCleaner.exe miner.log .\cleaned\hashes.csv -h
-LogCleaner.exe miner.log .\cleaned\shares.csv -s
-LogCleaner.exe miner.log .\cleaned\jobs.csv -j
+XMCleaner.exe miner.log .\cleaned\hashes.csv -h
+XMCleaner.exe miner.log .\cleaned\shares.csv -s
+XMCleaner.exe miner.log .\cleaned\jobs.csv -j
 del miner.log
 pause
 ```
