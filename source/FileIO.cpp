@@ -1,19 +1,16 @@
-#include <filesystem>
-#include <fstream>
-#include <iostream>
-#include <regex>
-#include "Converters.h"
+#include "Core.h"
 
 namespace fs = std::filesystem;
-Messenger messenger;
+XMCleaner::Messenger messenger;
 
-void CustomUtils::IO::TextFileProcessor::DelegateLine(std::string& logfilePath, std::string& outputFileName, bool& needsHeader)
+void XMCleaner::FileIO::TextFileProcessor::DelegateLine(std::string& logfilePath, std::string& outputFileName, bool& needsHeader)
 {
-    ReadLine(logfilePath, outputFileName, "-h", needsHeader);
+    std::string defaultString = "-h";
+    ReadLine(logfilePath, outputFileName, defaultString, needsHeader);
     return;
 }
 
-void CustomUtils::IO::TextFileProcessor::ReadLine(std::string& logfilePath, std::string& outputFileName, std::string& filterMode, bool& needsHeader)
+void XMCleaner::FileIO::TextFileProcessor::ReadLine(std::string& logfilePath, std::string& outputFileName, std::string& filterMode, bool& needsHeader)
 {
     fs::path p;
     p = logfilePath;
@@ -43,7 +40,7 @@ void CustomUtils::IO::TextFileProcessor::ReadLine(std::string& logfilePath, std:
     return;
 }
 
-void CustomUtils::IO::TextFileProcessor::CheckLine(std::string& lineToCheck, std::string& outputFileName, std::string& filterMode, bool& needsHeader)
+void XMCleaner::FileIO::TextFileProcessor::CheckLine(std::string& lineToCheck, std::string& outputFileName, std::string& filterMode, bool& needsHeader)
 {
     if (filterMode == "-h")
     {
@@ -76,13 +73,13 @@ void CustomUtils::IO::TextFileProcessor::CheckLine(std::string& lineToCheck, std
     return;
 }
 
-void CustomUtils::IO::TextFileProcessor::WriteLine(std::string lineToCheck, std::string outputFileName, std::string& filterMode, bool& needsHeader)
+void XMCleaner::FileIO::TextFileProcessor::WriteLine(std::string& lineToCheck, std::string& outputFileName, std::string& filterMode, bool& needsHeader)
 {
     if (filterMode == "-h")
     {
-        Converters::HashLog::ToCSV hashConverter;
-        std::ofstream outputFile(outputFileName, std::ios::out | std::ios::app)
-        
+        XMCleaner::Converter::HashLog::ToCSV hashConverter;
+        std::ofstream outputFile(outputFileName, std::ios::out | std::ios::app);
+
         if (!outputFile.is_open())
         {
             messenger.ErrorMsg_BadOutput(filterMode);
@@ -106,10 +103,10 @@ void CustomUtils::IO::TextFileProcessor::WriteLine(std::string lineToCheck, std:
     }
     else if (filterMode == "-j")
     {
-        Converters::JobLog::ToCSV jobConverter;
+        XMCleaner::Converter::JobLog::ToCSV jobConverter;
         std::ofstream outputFile(outputFileName, std::ios::out | std::ios::app);
         std::regex stringPattern("(new job from)");
-    
+
         if (!outputFile.is_open())
         {
             messenger.ErrorMsg_BadOutput(filterMode);
@@ -119,7 +116,7 @@ void CustomUtils::IO::TextFileProcessor::WriteLine(std::string lineToCheck, std:
         {
             if (needsHeader)
             {
-                outputFile << "date,time,system,server,diff,algo,height" << std::endl;
+                outputFile << "date,time,system,server,diff,algo,height,tx" << std::endl;
                 needsHeader = false;
             }
             if (!needsHeader)
@@ -133,7 +130,7 @@ void CustomUtils::IO::TextFileProcessor::WriteLine(std::string lineToCheck, std:
     }
     else if (filterMode == "-s")
     {
-        Converters::ShareLog::ToCSV shareConverter;
+        XMCleaner::Converter::ShareLog::ToCSV shareConverter;
         std::ofstream outputFile(outputFileName, std::ios::out | std::ios::app);
 
         if (!outputFile.is_open())

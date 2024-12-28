@@ -1,15 +1,15 @@
-#include "Converters.h"
+#include "Core.h"
 
-std::string Converters::HashLog::ToCSV::outputLine = "";
-int Converters::HashLog::ToCSV::counter = 1;
+std::string XMCleaner::Converter::HashLog::ToCSV::outputLine = "";
+int XMCleaner::Converter::HashLog::ToCSV::counter = 1;
 
-std::string Converters::HashLog::ToCSV::Convert(std::string& line)
+std::string XMCleaner::Converter::HashLog::ToCSV::Convert(std::string& line)
 {
     SymbolToSpace(line);
     ++counter;
     return outputLine;
 }
-void Converters::HashLog::ToCSV::SymbolToSpace(std::string& line)
+void XMCleaner::Converter::HashLog::ToCSV::SymbolToSpace(std::string& line)
 {
     std::string lineCache = line;
 
@@ -23,7 +23,7 @@ void Converters::HashLog::ToCSV::SymbolToSpace(std::string& line)
     line = lineCache;
     EqualiseSpaces(line);
 }
-void Converters::HashLog::ToCSV::EqualiseSpaces(std::string& line)
+void XMCleaner::Converter::HashLog::ToCSV::EqualiseSpaces(std::string& line)
 {
     int prevPos = 0;
     int currentPos = 1;
@@ -52,7 +52,7 @@ void Converters::HashLog::ToCSV::EqualiseSpaces(std::string& line)
     line = lineCache;
     SpaceToComma(line);
 }
-void Converters::HashLog::ToCSV::SpaceToComma(std::string& line)
+void XMCleaner::Converter::HashLog::ToCSV::SpaceToComma(std::string& line)
 {
     std::string lineCache = line;
 
@@ -67,7 +67,7 @@ void Converters::HashLog::ToCSV::SpaceToComma(std::string& line)
     Polisher polisher;
     polisher.Polish(line);
 }
-void Converters::HashLog::ToCSV::Polisher::Polish(std::string& line)
+void XMCleaner::Converter::HashLog::ToCSV::Polisher::Polish(std::string& line)
 {
     std::string lineCache = line;
     std::smatch matchStore;
@@ -98,7 +98,7 @@ void Converters::HashLog::ToCSV::Polisher::Polish(std::string& line)
     line.shrink_to_fit();
     outputLine = line;
 }
-void Converters::HashLog::ToCSV::Polisher::RemovePhrase(std::string& lineCache, std::smatch& matchStore, std::regex& pattern)
+void XMCleaner::Converter::HashLog::ToCSV::Polisher::RemovePhrase(std::string& lineCache, std::smatch& matchStore, std::regex& pattern)
 {
     auto phraseBegin = matchStore.position(0);
     auto phraseEnd = matchStore.length(0);
@@ -107,16 +107,16 @@ void Converters::HashLog::ToCSV::Polisher::RemovePhrase(std::string& lineCache, 
 }
 
 // ============================ ShareLog ===============================
-std::string Converters::ShareLog::ToCSV::outputLine = "";
-int Converters::ShareLog::ToCSV::counter = 1;
+std::string XMCleaner::Converter::ShareLog::ToCSV::outputLine = "";
+int XMCleaner::Converter::ShareLog::ToCSV::counter = 1;
 
-std::string Converters::ShareLog::ToCSV::Convert(std::string& line)
+std::string XMCleaner::Converter::ShareLog::ToCSV::Convert(std::string& line)
 {
     SymbolToSpace(line);
     ++counter;
     return outputLine;
 }
-void Converters::ShareLog::ToCSV::SymbolToSpace(std::string& line)
+void XMCleaner::Converter::ShareLog::ToCSV::SymbolToSpace(std::string& line)
 {
     std::string lineCache = line;
 
@@ -131,7 +131,7 @@ void Converters::ShareLog::ToCSV::SymbolToSpace(std::string& line)
     line = lineCache;
     EqualiseSpaces(line);
 }
-void Converters::ShareLog::ToCSV::EqualiseSpaces(std::string& line)
+void XMCleaner::Converter::ShareLog::ToCSV::EqualiseSpaces(std::string& line)
 {
     int prevPos = 0;
     int currentPos = 1;
@@ -160,7 +160,7 @@ void Converters::ShareLog::ToCSV::EqualiseSpaces(std::string& line)
     line = lineCache;
     SpaceToComma(line);
 }
-void Converters::ShareLog::ToCSV::SpaceToComma(std::string& line)
+void XMCleaner::Converter::ShareLog::ToCSV::SpaceToComma(std::string& line)
 {
     std::string lineCache = line;
 
@@ -175,7 +175,7 @@ void Converters::ShareLog::ToCSV::SpaceToComma(std::string& line)
     Polisher polisher;
     polisher.Polish(line);
 }
-void Converters::ShareLog::ToCSV::Polisher::Polish(std::string& line)
+void XMCleaner::Converter::ShareLog::ToCSV::Polisher::Polish(std::string& line)
 {
     std::string lineCache = line;
     std::smatch matchStore;
@@ -201,7 +201,7 @@ void Converters::ShareLog::ToCSV::Polisher::Polish(std::string& line)
     line.shrink_to_fit();
     outputLine = line;
 }
-void Converters::ShareLog::ToCSV::Polisher::RemovePhrase(std::string& lineCache, std::smatch& matchStore, std::regex& pattern)
+void XMCleaner::Converter::ShareLog::ToCSV::Polisher::RemovePhrase(std::string& lineCache, std::smatch& matchStore, std::regex& pattern)
 {
     auto phraseBegin = matchStore.position(0);
     auto phraseEnd = matchStore.length(0);
@@ -210,16 +210,16 @@ void Converters::ShareLog::ToCSV::Polisher::RemovePhrase(std::string& lineCache,
 }
 
 // ============================ JobLog ===============================
-std::string Converters::JobLog::ToCSV::outputLine = "";
-int Converters::JobLog::ToCSV::counter = 1;
+std::string XMCleaner::Converter::JobLog::ToCSV::outputLine = "";
+int XMCleaner::Converter::JobLog::ToCSV::counter = 1;
 
-std::string Converters::JobLog::ToCSV::Convert(std::string& line)
+std::string XMCleaner::Converter::JobLog::ToCSV::Convert(std::string& line)
 {
     BracketToSpace(line);
     ++counter;
     return outputLine;
 }
-void Converters::JobLog::ToCSV::BracketToSpace(std::string& line)
+void XMCleaner::Converter::JobLog::ToCSV::BracketToSpace(std::string& line)
 {
     std::string lineCache = line;
 
@@ -233,7 +233,7 @@ void Converters::JobLog::ToCSV::BracketToSpace(std::string& line)
     line = lineCache;
     EqualiseSpaces(line);
 }
-void Converters::JobLog::ToCSV::EqualiseSpaces(std::string& line)
+void XMCleaner::Converter::JobLog::ToCSV::EqualiseSpaces(std::string& line)
 {
     int prevPos = 0;
     int currentPos = 1;
@@ -262,7 +262,7 @@ void Converters::JobLog::ToCSV::EqualiseSpaces(std::string& line)
     line = lineCache;
     SpaceToComma(line);
 }
-void Converters::JobLog::ToCSV::SpaceToComma(std::string& line)
+void XMCleaner::Converter::JobLog::ToCSV::SpaceToComma(std::string& line)
 {
     std::string lineCache = line;
 
@@ -277,7 +277,7 @@ void Converters::JobLog::ToCSV::SpaceToComma(std::string& line)
     Polisher polisher;
     polisher.Polish(line);
 }
-void Converters::JobLog::ToCSV::Polisher::Polish(std::string& line)
+void XMCleaner::Converter::JobLog::ToCSV::Polisher::Polish(std::string& line)
 {
     std::string lineCache = line;
     std::smatch matchStore;
@@ -323,7 +323,7 @@ void Converters::JobLog::ToCSV::Polisher::Polish(std::string& line)
     line.shrink_to_fit();
     outputLine = line;
 }
-void Converters::JobLog::ToCSV::Polisher::RemovePhrase(std::string& lineCache, std::smatch& matchStore, std::regex& pattern)
+void XMCleaner::Converter::JobLog::ToCSV::Polisher::RemovePhrase(std::string& lineCache, std::smatch& matchStore, std::regex& pattern)
 {
     auto phraseBegin = matchStore.position(0);
     auto phraseEnd = matchStore.length(0);
