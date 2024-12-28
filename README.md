@@ -105,7 +105,7 @@ This will result in our exemplary directory structure looking like this:
 We have added `del miner.log` here as to mitigate already stripped lines from being read twice. Leave it out if you have other ways of dealing with duplicate lines in e.g. your data processing software.
 
 ### Compiling
-You can either build it yourself from the code in `/source/`.
+You can either build it yourself from the code in `/source/` by importing the code files into an empty project/solution or download the latest release in the releases section.
 
 When compiling yourself make sure to use at least `C++17` or newer, since the code utilises the non-experimental `std::filestream` for interacting with the input and output files.
 The code itself was written in a `C++22` environment.
