@@ -1,7 +1,6 @@
 #include "headlessCore.h"
 
 namespace fs = std::filesystem;
-XMCleaner::Messenger messenger;
 
 void XMCleaner::FileIO::TextFileProcessor::ReadLine(std::string& logfilePath, std::string& outputFileName, bool& needsHeader)
 {
@@ -30,24 +29,24 @@ void XMCleaner::FileIO::TextFileProcessor::ReadLine(std::string& logfilePath, st
 }
 
 void XMCleaner::FileIO::TextFileProcessor::CheckLine(std::string& lineToCheck, std::string& outputFileName, std::string& filterMode, bool& needsHeader)
-{
-    if (filterMode == "-h")
+{ 
+    switch (stepper)
     {
-        std::regex stringPattern("(speed 10s/60s/15m)");
+        case 1:
+            std::regex stringPattern("(speed 10s/60s/15m)");
+            
+            if (std::regex_search(lineToCheck, stringPattern))
+            {
+                WriteLine(lineToCheck, outputFileName, needsHeader);
+            }
+    
+        case 2:
+            std::regex stringPattern("(new job from)");
 
-        if (std::regex_search(lineToCheck, stringPattern))
-        {
-            WriteLine(lineToCheck, outputFileName, needsHeader);
-        }
-    }
-    else if (filterMode == "-j")
-    {
-        std::regex stringPattern("(new job from)");
-
-        if (std::regex_search(lineToCheck, stringPattern))
-        {
-            WriteLine(lineToCheck, outputFileName, needsHeader);
-        }
+            if (std::regex_search(lineToCheck, stringPattern))
+            {
+                WriteLine(lineToCheck, outputFileName, needsHeader);
+            }
     }
     else if (filterMode == "-s")
     {
@@ -72,74 +71,66 @@ void XMCleaner::FileIO::TextFileProcessor::WriteLine(std::string& lineToCheck, s
             XMCleaner::Converter::HashLog::ToCSV hashConverter;
             std::ofstream outputFile(outputFileName, std::ios::out | std::ios::app);
 
-        if (!outputFile.is_open())
-        {
-            outputFile.open(outputFileName);
-        }
-        else if (outputFile.is_open())
-        {
-            if (needsHeader)
+            if (!outputFile.is_open())
             {
-                outputFile << "date,time,system,10s,60s,15m,max" << std::endl;
-                needsHeader = false;
+                outputFile.open(outputFileName);
             }
-            if (!needsHeader)
+            else if (outputFile.is_open())
             {
-                hashConverter.Convert(lineToCheck);
-                outputFile << hashConverter.outputLine << std::endl;
-                messenger.StatusMsg_Saving(saveCounter);
-                ++saveCounter;
+                if (needsHeader)
+                {
+                    outputFile << "date,time,system,10s,60s,15m,max" << std::endl;
+                    needsHeader = false;
+                }
+                if (!needsHeader)
+                {
+                    hashConverter.Convert(lineToCheck);
+                    outputFile << hashConverter.outputLine << std::endl;
             }
         }
-    }
-    else if (filterMode == "-j")
-    {
-        XMCleaner::Converter::JobLog::ToCSV jobConverter;
-        std::ofstream outputFile(outputFileName, std::ios::out | std::ios::app);
-        std::regex stringPattern("(new job from)");
+        case 2:
+            XMCleaner::Converter::JobLog::ToCSV jobConverter;
+            std::ofstream outputFile(outputFileName, std::ios::out | std::ios::app);
+            std::regex stringPattern("(new job from)");
 
-        if (!outputFile.is_open())
-        {
-            outputFile.open(outputFileName);
-        }
-        else if (outputFile.is_open())
-        {
-            if (needsHeader)
+            if (!outputFile.is_open())
             {
-                outputFile << "date,time,system,server,diff,algo,height,tx" << std::endl;
-                needsHeader = false;
+                outputFile.open(outputFileName);
             }
-            if (!needsHeader)
+            else if (outputFile.is_open())
             {
-                jobConverter.Convert(lineToCheck);
-                outputFile << jobConverter.outputLine << std::endl;
-                ++saveCounter;
+                if (needsHeader)
+                {
+                    outputFile << "date,time,system,server,diff,algo,height,tx" << std::endl;
+                    needsHeader = false;
+                }
+                if (!needsHeader)
+                {
+                    jobConverter.Convert(lineToCheck);
+                    outputFile << jobConverter.outputLine << std::endl;
+                }
             }
-        }
-    }
-    else if (filterMode == "-s")
-    {
-        XMCleaner::Converter::ShareLog::ToCSV shareConverter;
-        std::ofstream outputFile(outputFileName, std::ios::out | std::ios::app);
+        case 3:
+            XMCleaner::Converter::ShareLog::ToCSV shareConverter;
+            std::ofstream outputFile(outputFileName, std::ios::out | std::ios::app);
 
-        if (!outputFile.is_open())
-        {
-            outputFile.open(outputFileName);
-        }
-        else if (outputFile.is_open())
-        {
-            if (needsHeader)
+            if (!outputFile.is_open())
             {
-                outputFile << "date,time,system,status,numAccept,numReject,difficulty,latency" << std::endl;
-                needsHeader = false;
+                outputFile.open(outputFileName);
             }
-            if (!needsHeader)
+            else if (outputFile.is_open())
             {
-                shareConverter.Convert(lineToCheck);
-                outputFile << shareConverter.outputLine << std::endl;
-                ++saveCounter;
+                if (needsHeader)
+                {
+                    outputFile << "date,time,system,status,numAccept,numReject,difficulty,latency" << std::endl;
+                    needsHeader = false;
+                }
+                if (!needsHeader)
+                {
+                    shareConverter.Convert(lineToCheck);
+                    outputFile << shareConverter.outputLine << std::endl;
+                }
             }
         }
     }
-    return;
 }
