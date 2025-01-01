@@ -1,6 +1,6 @@
 # **DISCLAIMER:**
 > This documentation file is meant to represent a future structure that has yet to be implemented. 
-> The restructuring is going to be a major part of update 1.5 which will also feature the full renaming from LogCleaner to XMCleaner to make it more clear what this is supposed to be used with and to express my aim to bring it as an optional module into the [XMRig main branch](#xmrig/xmrig)
+> The restructuring also featured the renaming from LogCleaner to XMCleaner to make it more clear what this is supposed to be used with and to express this repository's aim to bring it as an optional module into the [XMRig main branch](https:://github.com/xmrig/xmrig)
 
 <details>
 <summary><h2>XMCleaner</h2></summary>
