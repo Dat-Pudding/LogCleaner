@@ -1,6 +1,18 @@
-#include "HeadlessCore.h"
+#include "headlessCore.h"
 
-int main(int arch, char* argv[])
+int main(int argc, char* argv[])
 {
-    return 1;
+    XMCleaner::Core app;
+    if (app.Init())
+    {
+        if (app.Run(argc, argv))
+        {
+            app.Stop();
+            return 0;
+        }
+        else
+        {
+            return 1;
+        }
+    }
 }

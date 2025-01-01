@@ -22,7 +22,7 @@ namespace XMCleaner
         struct App
         {
             const std::string name = "XMCleaner";
-            const std::string version = "v1.5.0";
+            const std::string version = "v1.6.0";
             const std::string author = "Joshua Ostwald";
             const std::string license = "LGPL-2.1";
             const std::string githubLink = "github.com/Dat-Pudding/LogCleaner";
@@ -35,12 +35,15 @@ namespace XMCleaner
         class TextFileProcessor
         {
         public:
-            void ReadLine(std::string&, std::string&, bool&);
-            void CheckLine(std::string&, std::string&, bool&);
+            void ReadLine(std::string&, bool&);
+            void CheckLine(std::string&, bool&);
             void WriteLine(std::string&, std::string&, bool&);
 
         public:
             int saveCounter;
+            std::string outputPathSpeed = "./hashrate.csv";
+            std::string outputPathShares = "./shares.csv";
+            std::string outputPathJobs = "./jobs.csv";
         };
     };
 
