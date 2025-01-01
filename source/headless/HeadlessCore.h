@@ -15,14 +15,14 @@ namespace XMCleaner
         bool Run(int argc, char* argv[]);
         void Stop();
     };
+
     class AppInfo
     {
     public:
-        static void LoadAndPrint();
         struct App
         {
             const std::string name = "XMCleaner";
-            const std::string version = "v1.5.0";
+            const std::string version = "v1.6.0";
             const std::string author = "Joshua Ostwald";
             const std::string license = "LGPL-2.1";
             const std::string githubLink = "github.com/Dat-Pudding/LogCleaner";
@@ -35,31 +35,16 @@ namespace XMCleaner
         class TextFileProcessor
         {
         public:
-            void DelegateLine(std::string&, std::string&, bool&); // Defaults to filterMode '-h', then follows normal procedure via ReadLine()
-            void ReadLine(std::string&, std::string&, std::string&, bool&);
-            void CheckLine(std::string&, std::string&, std::string&, bool&);
-            void WriteLine(std::string&, std::string&, std::string&, bool&);
+            void ReadLine(std::string&, bool&);
+            void CheckLine(std::string&, bool&);
+            void WriteLine(std::string&, std::string&, bool&);
 
         public:
             int saveCounter;
+            std::string outputPathSpeed = "./hashrate.csv";
+            std::string outputPathShares = "./shares.csv";
+            std::string outputPathJobs = "./jobs.csv";
         };
-    };
-
-    class Messenger
-    {
-    public:
-        void ErrorMsg_TooFewArgs();
-        void ErrorMsg_IdenticalIO();
-        void ErrorMsg_BadMode(std::string);
-        void ErrorMsg_BadPath();
-        void ErrorMsg_BadOutput(std::string);
-        void ErrorMsg_BadDefaultOutput();
-        void ErrorMsg_Generic();
-
-        void StatusMsg_Searching(std::string);
-        void StatusMsg_Checking(unsigned int);
-        void StatusMsg_Saving(unsigned int);
-        void StatusMsg_Finished();
     };
 
     class Converter
